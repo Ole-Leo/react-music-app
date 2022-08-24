@@ -1,1 +1,0 @@
-# skyPro-coursework-react

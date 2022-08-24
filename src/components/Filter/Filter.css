@@ -1,0 +1,89 @@
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 39px; /*****!!*****/
+  margin: 45px 0 51px;
+
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.filter__text {
+  margin-right: 5px;
+}
+
+.filter__filteredList {
+  position: relative;
+}
+
+.filter__btn {
+  padding: 6px 20px 7px;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+
+  background: transparent;
+  color: inherit;
+  border: 1px solid;
+  border-radius: 60px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter__btn:hover {
+  color: #d9b6ff;
+  border: 1px solid #d9b6ff;
+}
+
+.filter__btn:active {
+  color: #ad61ff;
+  border: 1px solid #ad61ff;
+}
+
+.filter__list {
+  position: absolute;
+  top: 55px;
+  left: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 28px;
+  row-gap: 20px;
+
+  width: 424px;
+  height: 80px;
+
+  margin: 0;
+  padding: 30px 34px;
+
+  font-size: 20px;
+  line-height: 24px;
+
+  list-style: none;
+
+  background: #313131;
+  border-radius: 12px;
+}
+
+.filter__list > li {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter__list-input {
+  display: none;
+}
+
+.filter__list-input + label {
+  cursor: pointer;
+}
+
+.filter__list-input:checked + label {
+  color: #b672ff;
+  border-bottom: 2px solid currentColor;
+}

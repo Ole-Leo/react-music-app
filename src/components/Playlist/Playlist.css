@@ -1,0 +1,43 @@
+.playlist {
+  margin-top: 36px;
+}
+
+.playlist__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 2px;
+
+  color: #696969;
+}
+
+.playlist__header_track {
+  width: 480px;
+}
+
+.playlist__header_performer {
+  width: 321px;
+}
+
+.playlist__header_album {
+  width: 245px;
+}
+
+.playlist__header_time {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.playlist__header_time-svg {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+
+  fill: transparent;
+  stroke: #696969;
+}

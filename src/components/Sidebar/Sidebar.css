@@ -1,0 +1,54 @@
+.sidebar {
+  padding: 0 90px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.user-info__name {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.user-info__avatar {
+  width: 43px;
+  height: 43px;
+  background-color: #313131;
+  border-radius: 50%;
+}
+
+.playlist-offers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  padding-top: 260px;
+}
+
+.playlist-offer {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.1px;
+  text-align: center;
+
+  color: inherit;
+}
+
+.playlist-offer__img {
+  width: 250px;
+}
+
+.playlist-offer__text {
+  position: absolute;
+}

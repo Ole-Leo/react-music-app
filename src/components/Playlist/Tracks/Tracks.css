@@ -1,0 +1,89 @@
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  max-height: 640px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.tracks::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 16px;
+  line-height: 24px;
+
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.track:hover {
+  background: #222222;
+}
+
+.track__title {
+  display: flex;
+  align-items: center;
+  width: 480px;
+}
+
+.track__title-img {
+  margin-right: 17px;
+}
+
+.track__title-feat {
+  margin-left: 6px;
+  color: #4e4e4e;
+}
+
+.track__performer {
+  width: 321px;
+}
+
+.track__album {
+  width: 245px;
+
+  color: #696969;
+}
+
+.track__time {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 17px;
+
+  color: #696969;
+}
+
+.track__time-time {
+  width: 35px;
+  padding-right: 5px;
+  text-align: end;
+}
+
+.track__time-like {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.track__time-like:hover {
+  stroke: #fff;
+}
+
+.track__time-like:active {
+  fill: #696969;
+}

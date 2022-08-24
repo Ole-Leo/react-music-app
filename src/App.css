@@ -1,0 +1,19 @@
+.App {
+  position: relative;
+
+  max-width: 1920px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 244px auto 430px;
+
+  height: 100vh;
+  padding-top: 30px;
+}
+
+.main {
+  padding: 0 50px;
+}

@@ -1,0 +1,131 @@
+.audioPlayer {
+  position: sticky;
+  bottom: 0;
+
+  width: 100%;
+
+  background: #181818;
+}
+
+.audioPlayer__track_performer {
+  font-size: 13px;
+}
+
+.audioPlayer__progress-input {
+  -webkit-appearance: none;
+  height: 5px;
+  width: 100%;
+
+  background: #2e2e2e;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: background 0.2s ease-in-out;
+}
+
+.audioPlayer__progress-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+
+  border: none;
+  border-radius: 50%;
+  background: #696969;
+}
+
+.audioPlayer__content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 11px 65px 11px 34px;
+}
+
+.audioPlayer__track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  line-height: 24px;
+}
+
+.audioPlayer__btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.audioPlayer__btn_svg-prev,
+.audioPlayer__btn_svg-next {
+  width: 15px;
+  height: 14px;
+}
+
+.audioPlayer__btn_svg-play {
+  width: 22px;
+  height: 20px;
+  fill: #d9d9d9;
+}
+
+.audioPlayer__btn_svg-repeat,
+.audioPlayer__btn_svg-shuffle {
+  width: 18px;
+  height: 12px;
+  stroke: #696969;
+}
+
+.audioPlayer__btn_svg-like,
+.audioPlayer__btn_svg-dislike {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.audioPlayer__btn_svg-repeat:hover,
+.audioPlayer__btn_svg-shuffle:hover,
+.audioPlayer__btn_svg-like:hover,
+.audioPlayer__btn_svg-dislike:hover {
+  stroke: #acacac;
+}
+
+.audioPlayer__btn_svg-repeat:active,
+.audioPlayer__btn_svg-shuffle:active,
+.audioPlayer__btn_svg-like:active,
+.audioPlayer__btn_svg-dislike:active {
+  fill: #acacac;
+  stroke: #fff;
+}
+
+.audioPlayer__btn_svg-volume {
+  width: 13px;
+  height: 18px;
+}
+
+.audioPlayer__volume {
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+}
+
+.audioPlayer__volume-input {
+  -webkit-appearance: none;
+  height: 2px;
+  width: 109px;
+  background: #797979;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.audioPlayer__volume-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+}
