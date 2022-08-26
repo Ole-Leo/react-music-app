@@ -26,7 +26,7 @@ const Navigation: FC = () => {
       </div>
       {isShown && (
         <ul className={nav('menu')}>
-          <MenuItem href="/" text="Главное" />
+          <MenuItem href="/" text="Главная" />
           <MenuItem href="/" text="Мои треки" />
           <MenuItem href="/" text="Выйти" />
         </ul>

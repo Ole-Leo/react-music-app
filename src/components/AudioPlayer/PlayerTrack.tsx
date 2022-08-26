@@ -2,12 +2,12 @@ import { FC } from 'react';
 import trackIcon from '../../assets/svg/track-icon.svg';
 import { audioPlayer } from './AudioPlayer';
 
-type AudioPlayerTrackProps = {
+type PlayerTrackProps = {
   title: string;
   author: string;
 };
 
-const AudioPlayerTrack: FC<AudioPlayerTrackProps> = ({ title, author }) => {
+const PlayerTrack: FC<PlayerTrackProps> = ({ title, author }) => {
   return (
     <div className={audioPlayer('track')}>
       <img
@@ -23,4 +23,4 @@ const AudioPlayerTrack: FC<AudioPlayerTrackProps> = ({ title, author }) => {
   );
 };
 
-export default AudioPlayerTrack;
+export default PlayerTrack;

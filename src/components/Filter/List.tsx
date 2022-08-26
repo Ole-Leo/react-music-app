@@ -1,50 +1,19 @@
 import { FC } from 'react';
 import { filter } from './Filter';
+import ListItem from './ListItem';
 
-const List: FC = () => {
+type ListProps = {
+  list: string[];
+};
+
+const List: FC<ListProps> = ({ list }) => {
   return (
-    <ul className={filter('list')}>
-      <li>
-        <input
-          className={filter('list-input')}
-          type="checkbox"
-          id="checkbox-1"
-        />
-        <label htmlFor="checkbox-1">Michael Jackson</label>
-      </li>
-      <li>
-        <input
-          className={filter('list-input')}
-          type="checkbox"
-          id="checkbox-2"
-        />
-        <label htmlFor="checkbox-2">Frank Sinatra</label>
-      </li>
-      <li>
-        <input
-          className={filter('list-input')}
-          type="checkbox"
-          id="checkbox-3"
-        />
-        <label htmlFor="checkbox-3">Arctic Monkeys</label>
-      </li>
-      <li>
-        <input
-          className={filter('list-input')}
-          type="checkbox"
-          id="checkbox-4"
-        />
-        <label htmlFor="checkbox-4">Calvin Harris</label>
-      </li>
-      <li>
-        <input
-          className={filter('list-input')}
-          type="checkbox"
-          id="checkbox-5"
-        />
-        <label htmlFor="checkbox-5">Zhu</label>
-      </li>
-    </ul>
+    <div className={filter('list-container')}>
+      <ul className={filter('list')}>
+        {list &&
+          list.map(listitem => <ListItem key={listitem} name={listitem} />)}
+      </ul>
+    </div>
   );
 };
 

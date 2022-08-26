@@ -1,23 +1,23 @@
 import { FC } from 'react';
 import { audioPlayer } from './AudioPlayer';
 
-type AudioPlayerBtnProps = {
-  link: string;
+type PlayerBtnProps = {
+  src: string;
   name?: string;
   onClick?: VoidFunction;
 };
 
-const AudioPlayerBtn: FC<AudioPlayerBtnProps> = ({ link, name, onClick }) => {
+const PlayerBtn: FC<PlayerBtnProps> = ({ src, name, onClick }) => {
   return (
     <button
       className={audioPlayer(`btn`, { [`${name}`]: true })}
       onClick={onClick}
     >
       <svg className={audioPlayer(`btn`, { [`svg-${name}`]: true })}>
-        <use xlinkHref={link}></use>
+        <use xlinkHref={src}></use>
       </svg>
     </button>
   );
 };
 
-export default AudioPlayerBtn;
+export default PlayerBtn;

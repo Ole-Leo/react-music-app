@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import songReducer from './songSlice';
-import { songsAPI } from './songsAPI';
+import { tracksAPI } from './tracksAPI';
+import playerReducer from './playerSlice';
 
 const store = configureStore({
   reducer: {
-    song: songReducer,
-    [songsAPI.reducerPath]: songsAPI.reducer,
+    player: playerReducer,
+    [tracksAPI.reducerPath]: tracksAPI.reducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(songsAPI.middleware),
+    getDefaultMiddleware().concat(tracksAPI.middleware),
 });
 
 export default store;

@@ -3,7 +3,7 @@
   align-items: center;
   gap: 10px;
 
-  height: 39px; /*****!!*****/
+  height: 39px;
   margin: 45px 0 51px;
 
   font-size: 16px;
@@ -44,46 +44,55 @@
   border: 1px solid #ad61ff;
 }
 
-.filter__list {
+.filter__list-container {
   position: absolute;
   top: 55px;
   left: 0;
 
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 28px;
-  row-gap: 20px;
-
   width: 424px;
   height: 80px;
-
-  margin: 0;
-  padding: 30px 34px;
+  padding: 34px;
 
   font-size: 20px;
   line-height: 24px;
-
-  list-style: none;
 
   background: #313131;
   border-radius: 12px;
 }
 
-.filter__list > li {
+.filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  overflow-y: scroll;
+
+  height: inherit;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.filter__list::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.filter__listItem {
   cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease-in-out;
 }
 
-.filter__list-input {
+.filter__listItem-input {
   display: none;
 }
 
-.filter__list-input + label {
+.filter__listItem-input + label {
   cursor: pointer;
 }
 
-.filter__list-input:checked + label {
+.filter__listItem-input:checked + label {
   color: #b672ff;
   border-bottom: 2px solid currentColor;
 }

@@ -1,4 +1,10 @@
-export type MusicData = {
+export type PlayerData = {
+  tracks: TrackData[];
+  currentTrack: TrackData;
+  isPlaying: boolean;
+};
+
+export type TrackData = {
   id: number;
   name: string;
   author: string;
@@ -8,5 +14,13 @@ export type MusicData = {
   album: string;
   logo: null;
   track_file: string;
-  stared_user: never[];
+  stared_user: User[];
+};
+
+export type User = {
+  id: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
 };

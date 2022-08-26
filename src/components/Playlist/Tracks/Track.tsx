@@ -5,11 +5,11 @@ import block from 'bem-cn-lite';
 import trackIcon from '../../../assets/svg/track-icon.svg';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import { trackTime } from './utils';
-import { MusicData } from '../../../types/types';
+import { TrackData } from '../../../types/types';
 
 const track = block('track');
 
-export type TrackProps = MusicData & {
+export type TrackProps = TrackData & {
   onClick?: VoidFunction;
 };
 
@@ -26,8 +26,8 @@ const Track: FC<TrackProps> = ({
   );
 
   return (
-    <div className={track()} onClick={onClick}>
-      <div className={track('title')}>
+    <div className={track()}>
+      <div className={track('title')} onClick={onClick}>
         <img className={track('title-img')} src={trackIcon} alt="track-icon" />
         <div className={track('title-text')}>{name}</div>
       </div>
