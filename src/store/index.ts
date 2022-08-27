@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { tracksAPI } from './tracksAPI';
-import playerReducer from './playerSlice';
+import { playerReducer } from './playerSlice';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     player: playerReducer,
     [tracksAPI.reducerPath]: tracksAPI.reducer,
@@ -11,7 +12,6 @@ const store = configureStore({
     getDefaultMiddleware().concat(tracksAPI.middleware),
 });
 
-export default store;
+setupListeners(store.dispatch);
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

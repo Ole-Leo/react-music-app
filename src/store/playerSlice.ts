@@ -6,7 +6,7 @@ type TrackState = TrackData | null;
 const initialState = {
   tracks: [] as TrackState[],
   currentTrack: null as TrackState,
-  isPlaying: false,
+  play: false,
 };
 
 const playerSlice = createSlice({
@@ -19,12 +19,11 @@ const playerSlice = createSlice({
     getCurrentTrack: (state, action: PayloadAction<TrackData>) => {
       state.currentTrack = action.payload;
     },
-    setIsPlaying: (state, action: PayloadAction<boolean>) => {
-      state.isPlaying = action.payload;
+    setPlay: (state, action: PayloadAction<boolean>) => {
+      state.play = action.payload;
     },
   },
 });
 
-export const { getTracks, getCurrentTrack, setIsPlaying } = playerSlice.actions;
-
-export default playerSlice.reducer;
+export const playerActions = playerSlice.actions;
+export const playerReducer = playerSlice.reducer;
