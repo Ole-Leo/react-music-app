@@ -15,20 +15,18 @@ export const audioPlayer = block('audioPlayer');
 
 const AudioPlayer: FC = () => {
   const { setMute, setPlay, setVolume } = useActions();
-  const { currentTrack, isMute, isPlay, volume } = useAppSelector(
+  const { tracks, trackIndex, isPlay, isMute, volume } = useAppSelector(
     state => state.player
   );
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const currentTrack = tracks[trackIndex];
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (currentTrack) {
-      audioRef.current?.play();
+      isPlay ? audioRef.current?.play() : audioRef.current?.pause();
     }
-  }, [currentTrack]);
-
-  useEffect(() => {
-    isPlay ? audioRef.current?.play() : audioRef.current?.pause();
-  }, [isPlay]);
+  }, [currentTrack, isPlay]);
 
   const togglePlayHandler = () => {
     setPlay(!isPlay);
@@ -56,7 +54,7 @@ const AudioPlayer: FC = () => {
           />
           <PlayerProgress />
           <div className={audioPlayer('content')}>
-            <PlayerControls isPlaying={isPlay} onToggle={togglePlayHandler} />
+            <PlayerControls play={isPlay} onClick={togglePlayHandler} />
             <PlayerTrack
               title={currentTrack.name}
               author={currentTrack.author}

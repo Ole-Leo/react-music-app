@@ -1,5 +1,5 @@
 import './Tracks.css';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import block from 'bem-cn-lite';
 import Track from './Track';
 import { useActions } from '../../../store/actions';
@@ -12,18 +12,21 @@ type TracksProps = {
 };
 
 const Tracks: FC<TracksProps> = ({ trackList }) => {
-  const { getCurrentTrack, getCurrentTrackIndex, setPlay } = useActions();
+  const { setTrackIndex, setPlay, setTracks } = useActions();
 
-  const clickHandler = (data: TrackData, i: number) => {
-    getCurrentTrack(data);
-    getCurrentTrackIndex(i);
+  useEffect(() => {
+    setTracks(trackList);
+  }, [setTracks, trackList]);
+
+  const clickHandler = (i: number) => {
+    setTrackIndex(i);
     setPlay(true);
   };
 
   return (
     <div className={tracks()}>
       {trackList.map((song, i) => (
-        <Track key={song.id} {...song} onClick={() => clickHandler(song, i)} />
+        <Track key={song.id} {...song} onClick={() => clickHandler(i)} />
       ))}
     </div>
   );
