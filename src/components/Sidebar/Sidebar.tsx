@@ -5,11 +5,15 @@ import UserInfo from './UserInfo';
 
 const sidebar = block('sidebar');
 
-const Sidebar: FC = () => {
+type SidebarProps = {
+  isOffersShown?: boolean;
+};
+
+const Sidebar: FC<SidebarProps> = ({ isOffersShown = true }) => {
   return (
     <div className={sidebar()}>
       <UserInfo />
-      <PlaylistOffers />
+      {isOffersShown && <PlaylistOffers />}
     </div>
   );
 };

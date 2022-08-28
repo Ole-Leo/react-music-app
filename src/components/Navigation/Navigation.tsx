@@ -27,7 +27,7 @@ const Navigation: FC = () => {
       {isShown && (
         <ul className={nav('menu')}>
           <MenuItem href="/" text="Главная" />
-          <MenuItem href="/" text="Мои треки" />
+          <MenuItem href="/favorites" text="Мои треки" />
           <MenuItem href="/" text="Выйти" />
         </ul>
       )}

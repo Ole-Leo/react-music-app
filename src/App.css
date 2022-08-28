@@ -1,19 +1,27 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #181818;
+  color: #fff;
+}
+
 .App {
   position: relative;
 
   max-width: 1920px;
-  height: 100vh;
   margin: 0 auto;
 }
 
 .content {
   display: grid;
-  grid-template-columns: 244px auto 430px;
+  grid-template-columns: 244px auto;
 
-  height: 100vh;
   padding-top: 30px;
+  min-height: 100vh;
 }
 
 .main {
-  padding: 0 50px;
+  display: flex;
+  /* gap: 90px; */
+  padding-left: 50px;
 }

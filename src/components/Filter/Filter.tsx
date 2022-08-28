@@ -3,15 +3,17 @@ import './Filter.css';
 import { FC } from 'react';
 import block from 'bem-cn-lite';
 import FilteredList from './FilteredList';
-import { useGetTracksQuery } from '../../store/tracksAPI';
+import { TrackData } from '../../types/types';
 
 export const filter = block('filter');
 
-const Filter: FC = () => {
-  const { data: tracks } = useGetTracksQuery();
+type FilterProps = {
+  tracks: TrackData[];
+};
 
-  const artists = Array.from(new Set(tracks?.map(track => track.author)));
-  const genre = Array.from(new Set(tracks?.map(track => track.genre)));
+const Filter: FC<FilterProps> = ({ tracks }) => {
+  const artists = Array.from(new Set(tracks.map(track => track.author)));
+  const genre = Array.from(new Set(tracks.map(track => track.genre)));
 
   return (
     <div className={filter()}>

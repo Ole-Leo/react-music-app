@@ -1,17 +1,23 @@
+import './Playlist.css';
+
 import { FC } from 'react';
 import block from 'bem-cn-lite';
-
-import './Playlist.css';
 import PlaylistHeader from './PlaylistHeader';
 import Tracks from './Tracks/Tracks';
+import { TrackData } from '../../types/types';
 
 export const playlist = block('playlist');
 
-const Playlist: FC = () => {
+type PlaylistProps = {
+  tracks: TrackData[];
+  loading: boolean;
+};
+
+const Playlist: FC<PlaylistProps> = ({ tracks, loading }) => {
   return (
     <div className={playlist()}>
       <PlaylistHeader />
-      <Tracks />
+      <Tracks trackList={tracks} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
-import { playerActions } from '../store/playerSlice';
+import { playerActions } from './playerSlice';
 
 const actions = {
   ...playerActions,

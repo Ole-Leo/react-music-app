@@ -7,65 +7,65 @@ import PlayerControls from './PlayerControls';
 import PlayerTrack from './PlayerTrack';
 import PlayerVolume from './PlayerVolume';
 import PlayerProgress from './PlayerProgress';
+import { FC, useEffect, useRef } from 'react';
 import { useAppSelector } from '../../hooks/reduxHook';
-import { FC, useEffect, useRef, useState, ChangeEvent } from 'react';
+import { useActions } from '../../store/actions';
 
 export const audioPlayer = block('audioPlayer');
 
 const AudioPlayer: FC = () => {
-  const [isPlayerShown, setIsPlayerShown] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volumeValue, setVolumeValue] = useState(50);
-  const [isMute, setIsMute] = useState(false);
-
-  const { currentTrack } = useAppSelector(state => state.player);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const { setMute, setPlay, setVolume } = useActions();
+  const { currentTrack, isMute, isPlay, volume } = useAppSelector(
+    state => state.player
+  );
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (currentTrack) {
-      setIsPlayerShown(true);
-      setIsPlaying(true);
+      audioRef.current?.play();
     }
   }, [currentTrack]);
 
   useEffect(() => {
-    isPlaying ? audioRef.current?.play() : audioRef.current?.pause();
-  }, [isPlaying]);
+    isPlay ? audioRef.current?.play() : audioRef.current?.pause();
+  }, [isPlay]);
 
   const togglePlayHandler = () => {
-    setIsPlaying(!isPlaying);
+    setPlay(!isPlay);
   };
 
   const muteToggleHandler = () => {
-    setIsMute(!isMute);
+    setMute(!isMute);
   };
 
-  const changeVolumeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+  const changeVolumeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    setVolumeValue(Number(value));
-    audioRef.current!.volume = volumeValue / 100;
+    setVolume(Number(value));
+    audioRef.current!.volume = volume / 100;
   };
 
   return (
     <>
-      {isPlayerShown && (
+      {currentTrack && (
         <div className={audioPlayer()}>
-          <audio src={currentTrack?.track_file} ref={audioRef} muted={isMute} />
+          <audio
+            src={currentTrack.track_file}
+            ref={audioRef}
+            muted={isMute}
+            preload="auto"
+          />
           <PlayerProgress />
           <div className={audioPlayer('content')}>
-            <PlayerControls
-              isPlaying={isPlaying}
-              onToggle={togglePlayHandler}
-            />
+            <PlayerControls isPlaying={isPlay} onToggle={togglePlayHandler} />
             <PlayerTrack
-              title={currentTrack!.name}
-              author={currentTrack!.author}
+              title={currentTrack.name}
+              author={currentTrack.author}
             />
             <PlayerBtn src={`${svgIcon}#like`} name="like" />
             <PlayerBtn src={`${svgIcon}#dislike`} name="dislike" />
             <PlayerVolume
               onClick={muteToggleHandler}
-              value={volumeValue}
+              value={volume}
               onChange={changeVolumeHandler}
             />
           </div>
