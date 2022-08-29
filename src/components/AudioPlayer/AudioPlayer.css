@@ -91,8 +91,6 @@
   stroke: #acacac;
 }
 
-.audioPlayer__btn_svg-repeat:active,
-.audioPlayer__btn_svg-shuffle:active,
 .audioPlayer__btn_svg-like:active,
 .audioPlayer__btn_svg-dislike:active {
   fill: #acacac;
@@ -128,4 +126,10 @@
   border: none;
   border-radius: 50%;
   background: #fff;
+}
+
+.audioPlayer__btn_active .audioPlayer__btn_svg-repeat,
+.audioPlayer__btn_active .audioPlayer__btn_svg-shuffle {
+  fill: #acacac;
+  stroke: #fff;
 }

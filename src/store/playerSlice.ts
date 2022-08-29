@@ -4,7 +4,6 @@ import { TrackData } from '../types/types';
 type AudioState = {
   tracks: TrackData[];
   trackIndex: number;
-  shuffledTrack: number;
   isActive: boolean;
   isPlay: boolean;
 };
@@ -12,7 +11,6 @@ type AudioState = {
 const initialState: AudioState = {
   tracks: [],
   trackIndex: 0,
-  shuffledTrack: 0,
   isActive: false,
   isPlay: false,
 };

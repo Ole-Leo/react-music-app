@@ -10,7 +10,8 @@ import PlayerProgress from './PlayerProgress';
 import { FC, useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '../../hooks/reduxHook';
 import { useActions } from '../../store/actions';
-import { getRandomIndex, toggleHandler } from './utils';
+import { toggleHandler } from './utils';
+import usePlayerHook from './usePlayerHook';
 
 export const audioPlayer = block('audioPlayer');
 
@@ -18,14 +19,11 @@ const AudioPlayer: FC = () => {
   const [mute, setMute] = useState(false);
   const [volume, setVolume] = useState(100);
   const [repeat, setRepeat] = useState(false);
-  const [shuffled, setShuffled] = useState(false);
 
-  const { setTrackIndex, setPlay } = useActions();
-  const { tracks, trackIndex, isActive, isPlay } = useAppSelector(
-    state => state.player
-  );
+  const { setPlay } = useActions();
+  const { isActive, isPlay } = useAppSelector(state => state.player);
+  const { currentTrack, nextTrackHandler } = usePlayerHook();
 
-  const currentTrack = tracks[trackIndex];
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -42,26 +40,6 @@ const AudioPlayer: FC = () => {
     const { value } = event.target;
     setVolume(Number(value));
     audioRef.current!.volume = volume / 100;
-  };
-
-  const nextTrackHandler = () => {
-    if (shuffled) {
-      setTrackIndex(getRandomIndex(0, tracks.length - 1));
-    } else {
-      trackIndex === tracks.length - 1
-        ? setTrackIndex(0)
-        : setTrackIndex(trackIndex + 1);
-    }
-  };
-
-  const prevTrackHandler = () => {
-    if (shuffled) {
-      setTrackIndex(getRandomIndex(0, tracks.length - 1));
-    } else {
-      trackIndex === 0
-        ? setTrackIndex(tracks.length - 1)
-        : setTrackIndex(trackIndex - 1);
-    }
   };
 
   return (
@@ -81,10 +59,8 @@ const AudioPlayer: FC = () => {
             <PlayerControls
               play={isPlay}
               onPlayPauseClick={togglePlayPause}
-              onPrevClick={prevTrackHandler}
-              onNextClick={nextTrackHandler}
               onRepeat={() => toggleHandler(setRepeat, repeat)}
-              onShuffle={() => toggleHandler(setShuffled, shuffled)}
+              isRepeatClicked={repeat}
             />
             <PlayerTrack
               title={currentTrack.name}

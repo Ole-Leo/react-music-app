@@ -1,39 +1,54 @@
 import { FC } from 'react';
 import PlayerBtn from './PlayerBtn';
 import svgIcon from '../../assets/svg/sprite.svg';
+import usePlayerHook from './usePlayerHook';
+import { toggleHandler } from './utils';
 
 type PlayerControlsProps = {
   play: boolean;
   onPlayPauseClick?: VoidFunction;
-  onPrevClick?: VoidFunction;
-  onNextClick?: VoidFunction;
   onRepeat?: VoidFunction;
-  onShuffle?: VoidFunction;
+  isRepeatClicked?: boolean;
 };
 
 const PlayerControls: FC<PlayerControlsProps> = ({
   play,
   onPlayPauseClick,
-  onPrevClick,
-  onNextClick,
   onRepeat,
-  onShuffle,
+  isRepeatClicked,
 }) => {
+  const { shuffled, setShuffled, nextTrackHandler, prevTrackHandler } =
+    usePlayerHook();
+
   return (
     <>
-      <PlayerBtn src={`${svgIcon}#prev`} name="prev" onClick={onPrevClick} />
+      <PlayerBtn
+        src={`${svgIcon}#prev`}
+        name="prev"
+        onClick={prevTrackHandler}
+      />
       <PlayerBtn
         src={`${svgIcon}#${play ? 'pause' : 'play'}`}
         name="play"
         onClick={onPlayPauseClick}
       />
 
-      <PlayerBtn src={`${svgIcon}#next`} name="next" onClick={onNextClick} />
-      <PlayerBtn src={`${svgIcon}#repeat`} name="repeat" onClick={onRepeat} />
+      <PlayerBtn
+        src={`${svgIcon}#next`}
+        name="next"
+        onClick={nextTrackHandler}
+      />
+      <PlayerBtn
+        src={`${svgIcon}#repeat`}
+        name="repeat"
+        onClick={onRepeat}
+        isClicked={isRepeatClicked}
+      />
       <PlayerBtn
         src={`${svgIcon}#shuffle`}
         name="shuffle"
-        onClick={onShuffle}
+        onClick={() => toggleHandler(setShuffled, shuffled)}
+        isClicked={shuffled}
       />
     </>
   );

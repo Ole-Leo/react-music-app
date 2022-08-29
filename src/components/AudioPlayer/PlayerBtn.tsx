@@ -5,12 +5,18 @@ type PlayerBtnProps = {
   src: string;
   name?: string;
   onClick?: VoidFunction;
+  isClicked?: boolean;
 };
 
-const PlayerBtn: FC<PlayerBtnProps> = ({ src, name, onClick }) => {
+const PlayerBtn: FC<PlayerBtnProps> = ({
+  src,
+  name,
+  onClick,
+  isClicked = false,
+}) => {
   return (
     <button
-      className={audioPlayer(`btn`, { [`${name}`]: true })}
+      className={audioPlayer(`btn`, { [`${name}`]: true, active: isClicked })}
       onClick={onClick}
     >
       <svg className={audioPlayer(`btn`, { [`svg-${name}`]: true })}>
