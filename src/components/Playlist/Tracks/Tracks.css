@@ -29,6 +29,11 @@
   background: #222222;
 }
 
+.track.track_active {
+  background: #222222;
+  color: #ad61ff;
+}
+
 .track__title {
   display: flex;
   align-items: center;
@@ -37,11 +42,6 @@
 
 .track__title-img {
   margin-right: 17px;
-}
-
-.track__title-feat {
-  margin-left: 6px;
-  color: #4e4e4e;
 }
 
 .track__performer {
@@ -86,4 +86,14 @@
 
 .track__time-like:active {
   fill: #696969;
+}
+
+.track.track_active > .track__album,
+.track.track_active > .track__time {
+  color: #d9b6ff;
+}
+
+.track.track_active > .track__time > .track__time-like {
+  /* fill: transparent; */
+  stroke: #d9b6ff;
 }

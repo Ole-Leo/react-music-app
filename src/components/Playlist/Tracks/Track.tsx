@@ -11,6 +11,7 @@ const track = block('track');
 
 export type TrackProps = TrackData & {
   onClick?: VoidFunction;
+  isPlay?: boolean;
 };
 
 const Track: FC<TrackProps> = ({
@@ -19,6 +20,7 @@ const Track: FC<TrackProps> = ({
   album,
   duration_in_seconds,
   onClick,
+  isPlay = false,
 }) => {
   const memoTrackTime = useMemo(
     () => trackTime(duration_in_seconds),
@@ -26,7 +28,7 @@ const Track: FC<TrackProps> = ({
   );
 
   return (
-    <div className={track()}>
+    <div className={track({ active: isPlay })}>
       <div className={track('title')} onClick={onClick}>
         <img className={track('title-img')} src={trackIcon} alt="track-icon" />
         <div className={track('title-text')}>{name}</div>

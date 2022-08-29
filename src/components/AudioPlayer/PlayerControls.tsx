@@ -1,55 +1,40 @@
 import { FC } from 'react';
 import PlayerBtn from './PlayerBtn';
 import svgIcon from '../../assets/svg/sprite.svg';
-import { useActions } from '../../store/actions';
-import { useAppSelector } from '../../hooks/reduxHook';
 
 type PlayerControlsProps = {
   play: boolean;
-  onClick: VoidFunction;
+  onPlayPauseClick?: VoidFunction;
+  onPrevClick?: VoidFunction;
+  onNextClick?: VoidFunction;
+  onRepeat?: VoidFunction;
+  onShuffle?: VoidFunction;
 };
 
-const PlayerControls: FC<PlayerControlsProps> = ({ play, onClick }) => {
-  const { setTrackIndex } = useActions();
-  const { tracks, trackIndex } = useAppSelector(state => state.player);
-
-  const prevTrackHandler = () => {
-    console.log();
-    if (trackIndex - 1 < 0) {
-      setTrackIndex(tracks.length - 1);
-    } else {
-      setTrackIndex(trackIndex - 1);
-    }
-  };
-
-  const nextTrackHandler = () => {
-    if (trackIndex < tracks.length - 1) {
-      setTrackIndex(trackIndex + 1);
-    } else {
-      setTrackIndex(0);
-    }
-  };
-
+const PlayerControls: FC<PlayerControlsProps> = ({
+  play,
+  onPlayPauseClick,
+  onPrevClick,
+  onNextClick,
+  onRepeat,
+  onShuffle,
+}) => {
   return (
     <>
-      <PlayerBtn
-        src={`${svgIcon}#prev`}
-        name="prev"
-        onClick={prevTrackHandler}
-      />
+      <PlayerBtn src={`${svgIcon}#prev`} name="prev" onClick={onPrevClick} />
       <PlayerBtn
         src={`${svgIcon}#${play ? 'pause' : 'play'}`}
         name="play"
-        onClick={onClick}
+        onClick={onPlayPauseClick}
       />
 
+      <PlayerBtn src={`${svgIcon}#next`} name="next" onClick={onNextClick} />
+      <PlayerBtn src={`${svgIcon}#repeat`} name="repeat" onClick={onRepeat} />
       <PlayerBtn
-        src={`${svgIcon}#next`}
-        name="next"
-        onClick={nextTrackHandler}
+        src={`${svgIcon}#shuffle`}
+        name="shuffle"
+        onClick={onShuffle}
       />
-      <PlayerBtn src={`${svgIcon}#repeat`} name="repeat" />
-      <PlayerBtn src={`${svgIcon}#shuffle`} name="shuffle" />
     </>
   );
 };

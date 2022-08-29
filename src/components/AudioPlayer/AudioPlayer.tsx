@@ -7,15 +7,21 @@ import PlayerControls from './PlayerControls';
 import PlayerTrack from './PlayerTrack';
 import PlayerVolume from './PlayerVolume';
 import PlayerProgress from './PlayerProgress';
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '../../hooks/reduxHook';
 import { useActions } from '../../store/actions';
+import { getRandomIndex, toggleHandler } from './utils';
 
 export const audioPlayer = block('audioPlayer');
 
 const AudioPlayer: FC = () => {
-  const { setMute, setPlay, setVolume } = useActions();
-  const { tracks, trackIndex, isPlay, isMute, volume } = useAppSelector(
+  const [mute, setMute] = useState(false);
+  const [volume, setVolume] = useState(100);
+  const [repeat, setRepeat] = useState(false);
+  const [shuffled, setShuffled] = useState(false);
+
+  const { setTrackIndex, setPlay } = useActions();
+  const { tracks, trackIndex, isActive, isPlay } = useAppSelector(
     state => state.player
   );
 
@@ -28,12 +34,8 @@ const AudioPlayer: FC = () => {
     }
   }, [currentTrack, isPlay]);
 
-  const togglePlayHandler = () => {
+  const togglePlayPause = () => {
     setPlay(!isPlay);
-  };
-
-  const muteToggleHandler = () => {
-    setMute(!isMute);
   };
 
   const changeVolumeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,19 +44,48 @@ const AudioPlayer: FC = () => {
     audioRef.current!.volume = volume / 100;
   };
 
+  const nextTrackHandler = () => {
+    if (shuffled) {
+      setTrackIndex(getRandomIndex(0, tracks.length - 1));
+    } else {
+      trackIndex === tracks.length - 1
+        ? setTrackIndex(0)
+        : setTrackIndex(trackIndex + 1);
+    }
+  };
+
+  const prevTrackHandler = () => {
+    if (shuffled) {
+      setTrackIndex(getRandomIndex(0, tracks.length - 1));
+    } else {
+      trackIndex === 0
+        ? setTrackIndex(tracks.length - 1)
+        : setTrackIndex(trackIndex - 1);
+    }
+  };
+
   return (
     <>
-      {currentTrack && (
+      {isActive && (
         <div className={audioPlayer()}>
           <audio
             src={currentTrack.track_file}
             ref={audioRef}
-            muted={isMute}
+            muted={mute}
             preload="auto"
+            loop={repeat}
+            onEnded={nextTrackHandler}
           />
           <PlayerProgress />
           <div className={audioPlayer('content')}>
-            <PlayerControls play={isPlay} onClick={togglePlayHandler} />
+            <PlayerControls
+              play={isPlay}
+              onPlayPauseClick={togglePlayPause}
+              onPrevClick={prevTrackHandler}
+              onNextClick={nextTrackHandler}
+              onRepeat={() => toggleHandler(setRepeat, repeat)}
+              onShuffle={() => toggleHandler(setShuffled, shuffled)}
+            />
             <PlayerTrack
               title={currentTrack.name}
               author={currentTrack.author}
@@ -62,7 +93,7 @@ const AudioPlayer: FC = () => {
             <PlayerBtn src={`${svgIcon}#like`} name="like" />
             <PlayerBtn src={`${svgIcon}#dislike`} name="dislike" />
             <PlayerVolume
-              onClick={muteToggleHandler}
+              onClick={() => toggleHandler(setMute, mute)}
               value={volume}
               onChange={changeVolumeHandler}
             />

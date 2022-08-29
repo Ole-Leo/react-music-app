@@ -4,37 +4,34 @@ import { TrackData } from '../types/types';
 type AudioState = {
   tracks: TrackData[];
   trackIndex: number;
+  shuffledTrack: number;
+  isActive: boolean;
   isPlay: boolean;
-  isMute: boolean;
-  volume: number;
 };
 
 const initialState: AudioState = {
   tracks: [],
   trackIndex: 0,
+  shuffledTrack: 0,
+  isActive: false,
   isPlay: false,
-  isMute: false,
-  volume: 50,
 };
 
 const playerSlice = createSlice({
   name: 'player',
   initialState,
   reducers: {
-    setTracks: (state, action: PayloadAction<TrackData[]>) => {
+    addTracks: (state, action: PayloadAction<TrackData[]>) => {
       state.tracks = action.payload;
     },
     setTrackIndex: (state, action: PayloadAction<number>) => {
       state.trackIndex = action.payload;
     },
+    setActive: state => {
+      state.isActive = true;
+    },
     setPlay: (state, action: PayloadAction<boolean>) => {
       state.isPlay = action.payload;
-    },
-    setMute: (state, action: PayloadAction<boolean>) => {
-      state.isMute = action.payload;
-    },
-    setVolume: (state, action: PayloadAction<number>) => {
-      state.volume = action.payload;
     },
   },
 });
