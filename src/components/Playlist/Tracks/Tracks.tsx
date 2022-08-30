@@ -1,5 +1,5 @@
 import './Tracks.css';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import block from 'bem-cn-lite';
 import Track from './Track';
 import { useActions } from '../../../store/actions';
@@ -13,17 +13,14 @@ type TracksProps = {
 };
 
 const Tracks: FC<TracksProps> = ({ trackList }) => {
-  const { setTrackIndex, setActive, setPlay, addTracks } = useActions();
-  const { trackIndex, isActive } = useAppSelector(state => state.player);
-
-  useEffect(() => {
-    addTracks(trackList);
-  }, [addTracks, trackList]);
+  const { setTrackIndex, setPlayerActive, setPlay, addTracks } = useActions();
+  const { trackIndex, tracks: songs } = useAppSelector(state => state.player);
 
   const clickHandler = (i: number) => {
+    addTracks(trackList);
     setTrackIndex(i);
+    setPlayerActive();
     setPlay(true);
-    setActive();
   };
 
   return (
@@ -33,7 +30,7 @@ const Tracks: FC<TracksProps> = ({ trackList }) => {
           key={song.id}
           {...song}
           onClick={() => clickHandler(i)}
-          isPlay={isActive && trackIndex === i}
+          isActive={song === songs[trackIndex]}
         />
       ))}
     </div>

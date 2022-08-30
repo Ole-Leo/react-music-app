@@ -6,7 +6,7 @@ import Title from '../components/Title/Title';
 import { MUSIC_DATA } from '../data';
 
 const FavoritesPage = () => {
-  const data = MUSIC_DATA;
+  const data = MUSIC_DATA.slice(-10);
 
   const [search, setSearch] = useState('');
 

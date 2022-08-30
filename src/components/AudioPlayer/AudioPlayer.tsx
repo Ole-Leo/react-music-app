@@ -21,7 +21,7 @@ const AudioPlayer: FC = () => {
   const [repeat, setRepeat] = useState(false);
 
   const { setPlay } = useActions();
-  const { isActive, isPlay } = useAppSelector(state => state.player);
+  const { isPlayerActive, isPlay } = useAppSelector(state => state.player);
   const { currentTrack, nextTrackHandler } = usePlayerHook();
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -44,7 +44,7 @@ const AudioPlayer: FC = () => {
 
   return (
     <>
-      {isActive && (
+      {isPlayerActive && (
         <div className={audioPlayer()}>
           <audio
             src={currentTrack.track_file}
