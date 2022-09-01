@@ -13,13 +13,12 @@ type TracksProps = {
 };
 
 const Tracks: FC<TracksProps> = ({ trackList }) => {
-  const { setTrackIndex, setPlayerActive, setPlay, addTracks } = useActions();
+  const { setTrackIndex, setPlay, addTracks } = useActions();
   const { trackIndex, tracks: songs } = useAppSelector(state => state.player);
 
   const clickHandler = (i: number) => {
     addTracks(trackList);
     setTrackIndex(i);
-    setPlayerActive();
     setPlay(true);
   };
 

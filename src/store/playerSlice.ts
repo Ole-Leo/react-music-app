@@ -4,14 +4,12 @@ import { TrackData } from '../types/types';
 type AudioState = {
   tracks: TrackData[];
   trackIndex: number;
-  isPlayerActive: boolean;
   isPlay: boolean;
 };
 
 const initialState: AudioState = {
   tracks: [],
   trackIndex: 0,
-  isPlayerActive: false,
   isPlay: false,
 };
 
@@ -24,10 +22,6 @@ const playerSlice = createSlice({
     },
     setTrackIndex: (state, action: PayloadAction<number>) => {
       state.trackIndex = action.payload;
-    },
-    setPlayerActive: state => {
-      state.isPlayerActive = true;
-      console.log(state.isPlayerActive);
     },
     setPlay: (state, action: PayloadAction<boolean>) => {
       state.isPlay = action.payload;
