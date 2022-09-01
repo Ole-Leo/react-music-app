@@ -12,6 +12,7 @@ import { useAppSelector } from '../../hooks/reduxHook';
 import { useActions } from '../../store/actions';
 import { toggleHandler } from './utils';
 import usePlayerHook from './usePlayerHook';
+import AudioElement from './AudioElement';
 
 export const audioPlayer = block('audioPlayer');
 
@@ -24,7 +25,7 @@ const AudioPlayer: FC = () => {
   const { isPlay } = useAppSelector(state => state.player);
   const { currentTrack, nextTrackHandler } = usePlayerHook();
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (currentTrack) {
@@ -46,13 +47,12 @@ const AudioPlayer: FC = () => {
     <>
       {currentTrack && (
         <div className={audioPlayer()}>
-          <audio
-            src={currentTrack.track_file}
+          <AudioElement
             ref={audioRef}
-            muted={mute}
-            preload=""
-            loop={repeat}
-            onEnded={nextTrackHandler}
+            src={currentTrack.track_file}
+            mute={mute}
+            repeat={repeat}
+            onTrackEnd={nextTrackHandler}
           />
           <PlayerProgress />
           <div className={audioPlayer('content')}>
@@ -67,7 +67,6 @@ const AudioPlayer: FC = () => {
               author={currentTrack.author}
             />
             <PlayerBtn src={`${svgIcon}#like`} name="like" />
-            <PlayerBtn src={`${svgIcon}#dislike`} name="dislike" />
             <PlayerVolume
               onClick={() => toggleHandler(setMute, mute)}
               value={volume}
