@@ -5,7 +5,7 @@ import block from 'bem-cn-lite';
 import trackIcon from '../../../assets/svg/track-icon.svg';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import { trackTime } from './utils';
-import { TrackData } from '../../../types/types';
+import { TrackData } from '../../../models/types';
 
 const track = block('track');
 

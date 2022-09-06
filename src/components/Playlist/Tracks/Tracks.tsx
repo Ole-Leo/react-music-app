@@ -3,7 +3,7 @@ import { FC } from 'react';
 import block from 'bem-cn-lite';
 import Track from './Track';
 import { useActions } from '../../../store/actions';
-import { TrackData } from '../../../types/types';
+import { TrackData } from '../../../models/types';
 import { useAppSelector } from '../../../hooks/reduxHook';
 
 const tracks = block('tracks');
@@ -13,12 +13,12 @@ type TracksProps = {
 };
 
 const Tracks: FC<TracksProps> = ({ trackList }) => {
-  const { setTrackIndex, setPlay, addTracks } = useActions();
+  const { getTrackIndex, setPlay, addTracks } = useActions();
   const { trackIndex, tracks: songs } = useAppSelector(state => state.player);
 
   const clickHandler = (i: number) => {
     addTracks(trackList);
-    setTrackIndex(i);
+    getTrackIndex(i);
     setPlay(true);
   };
 

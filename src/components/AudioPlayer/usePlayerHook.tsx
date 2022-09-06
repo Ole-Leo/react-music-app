@@ -5,27 +5,27 @@ import { getRandomIndex } from './utils';
 
 const usePlayerHook = () => {
   const [shuffled, setShuffled] = useState(false);
-  const { setTrackIndex } = useActions();
+  const { getTrackIndex } = useActions();
   const { tracks, trackIndex } = useAppSelector(state => state.player);
 
   const currentTrack = tracks[trackIndex];
   const nextTrackHandler = () => {
     if (shuffled) {
-      setTrackIndex(getRandomIndex(0, tracks.length - 1));
+      getTrackIndex(getRandomIndex(0, tracks.length - 1));
     } else {
       trackIndex === tracks.length - 1
-        ? setTrackIndex(0)
-        : setTrackIndex(trackIndex + 1);
+        ? getTrackIndex(0)
+        : getTrackIndex(trackIndex + 1);
     }
   };
 
   const prevTrackHandler = () => {
     if (shuffled) {
-      setTrackIndex(getRandomIndex(0, tracks.length - 1));
+      getTrackIndex(getRandomIndex(0, tracks.length - 1));
     } else {
       trackIndex === 0
-        ? setTrackIndex(tracks.length - 1)
-        : setTrackIndex(trackIndex - 1);
+        ? getTrackIndex(tracks.length - 1)
+        : getTrackIndex(trackIndex - 1);
     }
   };
   return {

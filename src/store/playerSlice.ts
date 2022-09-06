@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TrackData } from '../types/types';
+import { TrackData } from '../models/types';
 
 type AudioState = {
   tracks: TrackData[];
@@ -20,7 +20,7 @@ const playerSlice = createSlice({
     addTracks: (state, action: PayloadAction<TrackData[]>) => {
       state.tracks = action.payload;
     },
-    setTrackIndex: (state, action: PayloadAction<number>) => {
+    getTrackIndex: (state, action: PayloadAction<number>) => {
       state.trackIndex = action.payload;
     },
     setPlay: (state, action: PayloadAction<boolean>) => {

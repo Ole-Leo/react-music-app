@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { TrackData } from '../types/types';
+import { TrackData } from '../models/types';
 import { URL } from '../utils/utils';
 
 export const tracksAPI = createApi({

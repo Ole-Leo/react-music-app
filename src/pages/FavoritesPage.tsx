@@ -1,25 +1,21 @@
-import { useState } from 'react';
 import Playlist from '../components/Playlist/Playlist';
 import Search from '../components/Search/Search';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Title from '../components/Title/Title';
 import { MUSIC_DATA } from '../data';
+import useFilterTracks from '../hooks/useFilterTracks';
 
 const FavoritesPage = () => {
-  const data = MUSIC_DATA.slice(-10);
+  const data = MUSIC_DATA;
 
-  const [search, setSearch] = useState('');
+  const { searchQuery, filteredTracks, changeHandler } = useFilterTracks(data);
 
-  const changeValueHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setSearch(value.toLowerCase());
-  };
   return (
     <main className="main">
       <div className="main-content">
-        <Search query={search} onChange={changeValueHandler} />
+        <Search query={searchQuery} onChange={changeHandler} />
         <Title text="Мои треки" />
-        <Playlist tracks={data} loading={false} />
+        <Playlist tracks={filteredTracks} loading={false} />
       </div>
       <Sidebar isOffersShown={false} />
     </main>

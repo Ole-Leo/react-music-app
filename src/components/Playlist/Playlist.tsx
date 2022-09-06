@@ -4,7 +4,7 @@ import { FC } from 'react';
 import block from 'bem-cn-lite';
 import PlaylistHeader from './PlaylistHeader';
 import Tracks from './Tracks/Tracks';
-import { TrackData } from '../../types/types';
+import { TrackData } from '../../models/types';
 
 export const playlist = block('playlist');
 

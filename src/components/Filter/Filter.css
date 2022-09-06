@@ -50,7 +50,6 @@
   left: 0;
 
   width: 424px;
-  height: 80px;
   padding: 34px;
 
   font-size: 20px;
@@ -66,7 +65,7 @@
   gap: 28px;
   overflow-y: scroll;
 
-  height: inherit;
+  max-height: 80px;
   margin: 0;
   padding: 0;
 
