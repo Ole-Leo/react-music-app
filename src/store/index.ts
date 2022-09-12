@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { tracksAPI } from './tracksAPI';
 import { playerReducer } from './playerSlice';
-import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { filterReducer } from './filterSlice';
 
 export const store = configureStore({
   reducer: {
     player: playerReducer,
+    filter: filterReducer,
     [tracksAPI.reducerPath]: tracksAPI.reducer,
   },
   middleware: getDefaultMiddleware =>

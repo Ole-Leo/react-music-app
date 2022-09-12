@@ -8,16 +8,16 @@ export const filter = block('filter');
 
 type FilterProps = {
   year: string[];
-  artist: string[];
+  author: string[];
   genre: string[];
 };
 
-const Filter: FC<FilterProps> = ({ year, artist, genre }) => {
+const Filter: FC<FilterProps> = ({ year, author, genre }) => {
   return (
     <div className={filter()}>
       <span className={filter('text')}>Искать по:</span>
       <FilteredList text="году выпуска" name="year" list={year} />
-      <FilteredList text="исполнителю" name="artist" list={artist} />
+      <FilteredList text="исполнителю" name="artist" list={author} />
       <FilteredList text="жанру" name="genre" list={genre} />
     </div>
   );

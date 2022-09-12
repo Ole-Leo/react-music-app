@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useAppSelector } from '../../hooks/reduxHook';
+import { useActions } from '../../store/actions';
 import { filter } from './Filter';
 
 type ListItemProps = {
@@ -6,19 +8,24 @@ type ListItemProps = {
 };
 
 const ListItem: FC<ListItemProps> = ({ name }) => {
-  // const [checked, setChecked] = useState(false);
-  // console.log(checked);
+  const [checked, setChecked] = useState(false);
+  const { addFilter, cleanFilter } = useActions();
+  const { filter: filteredList } = useAppSelector(state => state.filter);
+
+  const toggleClick = (name: string) => {
+    filteredList.includes(name) ? cleanFilter(name) : addFilter(name);
+  };
+
+  useEffect(() => {
+    filteredList.includes(name) ? setChecked(true) : setChecked(false);
+  }, [filteredList, name]);
 
   return (
-    <li className={filter('listItem')}>
-      <input
-        className={filter('listItem-input')}
-        type="checkbox"
-        id={name}
-        // checked={checked}
-        // onChange={e => setChecked(e.target.checked)}
-      />
-      <label htmlFor={name}>{name}</label>
+    <li
+      className={filter('listItem', { active: checked })}
+      onClick={() => toggleClick(name)}
+    >
+      {name}
     </li>
   );
 };

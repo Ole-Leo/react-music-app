@@ -3,7 +3,7 @@ import Search from '../components/Search/Search';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Title from '../components/Title/Title';
 import { MUSIC_DATA } from '../data';
-import useFilterTracks from '../hooks/useFilterTracks';
+import { useFilterTracks } from '../hooks/useFilteredTracks';
 
 const FavoritesPage = () => {
   const data = MUSIC_DATA;

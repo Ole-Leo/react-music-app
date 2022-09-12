@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 12px;
 
-  max-height: 640px;
+  max-height: 681px;
   overflow-y: scroll;
   scrollbar-width: none;
 }
@@ -41,6 +41,8 @@
 }
 
 .track__title-img {
+  width: 51px;
+  height: 51px;
   margin-right: 17px;
 }
 

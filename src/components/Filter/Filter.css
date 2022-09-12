@@ -80,18 +80,14 @@
 .filter__listItem {
   cursor: pointer;
   border-bottom: 2px solid transparent;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
-.filter__listItem-input {
-  display: none;
-}
-
-.filter__listItem-input + label {
-  cursor: pointer;
-}
-
-.filter__listItem-input:checked + label {
+.filter__listItem_active {
   color: #b672ff;
   border-bottom: 2px solid currentColor;
+}
+
+.filter__listItem:hover {
+  color: #d9b6ff;
 }
