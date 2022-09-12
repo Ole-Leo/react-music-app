@@ -18,14 +18,13 @@ export const audioPlayer = block('audioPlayer');
 
 const AudioPlayer: FC = () => {
   const [mute, setMute] = useState(false);
-  const [volume, setVolume] = useState(100);
   const [repeat, setRepeat] = useState(false);
 
   const { setPlay } = useActions();
   const { isPlay } = useAppSelector(state => state.player);
   const { currentTrack, nextTrackHandler } = usePlayerHook();
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     if (currentTrack) {
@@ -35,12 +34,6 @@ const AudioPlayer: FC = () => {
 
   const togglePlayPause = () => {
     setPlay(!isPlay);
-  };
-
-  const changeVolumeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setVolume(Number(value));
-    audioRef.current!.volume = volume / 100;
   };
 
   return (
@@ -68,9 +61,8 @@ const AudioPlayer: FC = () => {
             />
             <PlayerBtn src={`${svgIcon}#like`} name="like" />
             <PlayerVolume
+              ref={audioRef}
               onClick={() => toggleHandler(setMute, mute)}
-              value={volume}
-              onChange={changeVolumeHandler}
             />
           </div>
         </div>

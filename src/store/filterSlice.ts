@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type FilterState = {
-  isChecked: boolean;
   filter: string[];
   year: string[];
 };
 
 const initialState: FilterState = {
-  isChecked: false,
   filter: [],
   year: [],
 };
@@ -21,9 +19,6 @@ const filterSlice = createSlice({
     },
     cleanFilter(state, action: PayloadAction<string>) {
       state.filter = state.filter.filter(name => name !== action.payload);
-    },
-    setIsChecked(state, action: PayloadAction<boolean>) {
-      state.isChecked = action.payload;
     },
   },
 });

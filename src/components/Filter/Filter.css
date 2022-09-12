@@ -87,7 +87,3 @@
   color: #b672ff;
   border-bottom: 2px solid currentColor;
 }
-
-.filter__listItem:hover {
-  color: #d9b6ff;
-}
