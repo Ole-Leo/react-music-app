@@ -45,6 +45,11 @@
   text-align: center;
 
   color: inherit;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.playlist-offer:hover {
+  opacity: 0.85;
 }
 
 .playlist-offer__img {
@@ -53,4 +58,5 @@
 
 .playlist-offer__text {
   position: absolute;
+  text-shadow: 1px 1px 10px #313131;
 }

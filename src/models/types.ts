@@ -1,7 +1,9 @@
-export type PlayerData = {
-  tracks: TrackData[];
-  currentTrack: TrackData;
-  isPlaying: boolean;
+export type User = {
+  id: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  email: string;
 };
 
 export type TrackData = {
@@ -17,10 +19,15 @@ export type TrackData = {
   stared_user: User[];
 };
 
-export type User = {
+export type CollectionData = {
   id: number;
-  username: string;
-  first_name: string;
-  last_name: string;
-  email: string;
+  items: TrackData[];
+  owner: string;
+  name: string;
+};
+
+export type PlayerData = {
+  tracks: TrackData[];
+  currentTrack: TrackData;
+  isPlaying: boolean;
 };

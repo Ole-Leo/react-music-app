@@ -27,6 +27,7 @@
 
 .track:hover {
   background: #222222;
+  color: #d9b6ff;
 }
 
 .track.track_active {

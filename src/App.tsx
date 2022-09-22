@@ -6,6 +6,7 @@ import Navigation from './components/Navigation/Navigation';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 import MainPage from './pages/MainPage';
 import FavoritesPage from './pages/FavoritesPage';
+import CollectionPage from './pages/CollectionPage';
 
 const App: FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: FC = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/collection/:id" element={<CollectionPage />} />
         </Routes>
       </div>
       <AudioPlayer />

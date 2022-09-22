@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TrackData } from '../models/types';
+import { TrackData } from '../../models/types';
 
 type AudioState = {
   tracks: TrackData[];

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { TrackData } from '../models/types';
 
-const useFilterTracks = (data: TrackData[]) => {
-  const [filteredTracks, setFilteredTracks] = useState(data);
+const useFilterTracks = (data: TrackData[] | undefined) => {
+  const [filteredTracks, setFilteredTracks] = useState<TrackData[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -11,13 +11,15 @@ const useFilterTracks = (data: TrackData[]) => {
   };
 
   useEffect(() => {
-    setFilteredTracks(
-      data.filter(
-        item =>
-          item.name.toLocaleLowerCase().includes(searchQuery) ||
-          item.author.toLocaleLowerCase().includes(searchQuery)
-      )
-    );
+    if (data) {
+      setFilteredTracks(
+        data.filter(
+          item =>
+            item.name.toLocaleLowerCase().includes(searchQuery) ||
+            item.author.toLocaleLowerCase().includes(searchQuery)
+        )
+      );
+    }
   }, [data, searchQuery]);
 
   return { searchQuery, filteredTracks, changeHandler };

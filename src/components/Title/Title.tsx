@@ -4,7 +4,7 @@ import block from 'bem-cn-lite';
 import './Title.css';
 
 type TitleProps = {
-  text: string;
+  text?: string;
 };
 
 const title = block('title');

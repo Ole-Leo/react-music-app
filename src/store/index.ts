@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { tracksAPI } from './tracksAPI';
-import { playerReducer } from './playerSlice';
-import { filterReducer } from './filterSlice';
+import { playerReducer } from './slices/playerSlice';
+import { filterReducer } from './slices/filterSlice';
 
 export const store = configureStore({
   reducer: {
