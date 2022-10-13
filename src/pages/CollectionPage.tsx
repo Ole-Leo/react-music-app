@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
-import Playlist from '../components/Playlist/Playlist';
-import Search from '../components/Search/Search';
-import Sidebar from '../components/Sidebar/Sidebar';
-import Title from '../components/Title/Title';
+import { Playlist } from '../components/Playlist/Playlist';
+import { Search } from '../components/Search/Search';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+import { Title } from '../components/Title/Title';
 import { useFilterTracks } from '../hooks/useFilteredTracks';
 import { useGetCollectionQuery } from '../store/tracksAPI';
 
-const CollectionPage = () => {
+export const CollectionPage = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetCollectionQuery(Number(id));
   const { searchQuery, filteredTracks, changeHandler } = useFilterTracks(
@@ -24,5 +24,3 @@ const CollectionPage = () => {
     </main>
   );
 };
-
-export default CollectionPage;

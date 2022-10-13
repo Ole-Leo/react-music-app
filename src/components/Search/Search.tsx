@@ -11,7 +11,7 @@ type SearchProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Search: FC<SearchProps> = ({ query, onChange }) => {
+export const Search: FC<SearchProps> = ({ query, onChange }) => {
   return (
     <div className={search()}>
       <svg className={search('icon')}>
@@ -27,5 +27,3 @@ const Search: FC<SearchProps> = ({ query, onChange }) => {
     </div>
   );
 };
-
-export default Search;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { TrackData } from '../models/types';
 
-const useFilterTracks = (data: TrackData[] | undefined) => {
+export const useFilterTracks = (data: TrackData[] | undefined) => {
   const [filteredTracks, setFilteredTracks] = useState<TrackData[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -24,5 +24,3 @@ const useFilterTracks = (data: TrackData[] | undefined) => {
 
   return { searchQuery, filteredTracks, changeHandler };
 };
-
-export { useFilterTracks };

@@ -1,15 +1,15 @@
-import { FC, useState } from 'react';
 import block from 'bem-cn-lite';
-import Logo from '../Logo/Logo';
+import { Logo } from '../Logo/Logo';
+import { MenuItem } from './MenuItem';
+import { FC, useState } from 'react';
 import logoWhite from '../../assets/svg/logo-white.svg';
 import svgIcon from '../../assets/svg/sprite.svg';
-import MenuItem from './MenuItem';
 
 import './Navigation.css';
 
 export const nav = block('nav');
 
-const Navigation: FC = () => {
+export const Navigation: FC = () => {
   const [isShown, setIsShown] = useState(true);
 
   const menuClickHandler = () => {
@@ -34,5 +34,3 @@ const Navigation: FC = () => {
     </nav>
   );
 };
-
-export default Navigation;

@@ -1,13 +1,13 @@
+import { PlayerBtn } from './PlayerBtn';
+import { audioPlayer } from './AudioPlayer';
 import { forwardRef, useState } from 'react';
 import svgIcon from '../../assets/svg/sprite.svg';
-import { audioPlayer } from './AudioPlayer';
-import PlayerBtn from './PlayerBtn';
 
 type PlayerVolumeProps = {
   onClick?: VoidFunction;
 };
 
-const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
+export const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
   ({ onClick }, ref) => {
     const [volume, setVolume] = useState(100);
 
@@ -35,5 +35,3 @@ const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
     );
   }
 );
-
-export default PlayerVolume;

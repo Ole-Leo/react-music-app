@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import block from 'bem-cn-lite';
-import PlaylistOffers from './PlaylistOffers';
-import UserInfo from './UserInfo';
+import { PlaylistOffers } from './PlaylistOffers';
+import { UserInfo } from './UserInfo';
 
 const sidebar = block('sidebar');
 
@@ -9,7 +9,7 @@ type SidebarProps = {
   isOffersShown?: boolean;
 };
 
-const Sidebar: FC<SidebarProps> = ({ isOffersShown = true }) => {
+export const Sidebar: FC<SidebarProps> = ({ isOffersShown = true }) => {
   return (
     <div className={sidebar()}>
       <UserInfo />
@@ -17,5 +17,3 @@ const Sidebar: FC<SidebarProps> = ({ isOffersShown = true }) => {
     </div>
   );
 };
-
-export default Sidebar;

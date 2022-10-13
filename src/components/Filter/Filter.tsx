@@ -2,7 +2,7 @@ import './Filter.css';
 
 import { FC } from 'react';
 import block from 'bem-cn-lite';
-import FilteredList from './FilteredList';
+import { FilteredList } from './FilteredList';
 
 export const filter = block('filter');
 
@@ -12,7 +12,7 @@ type FilterProps = {
   genre: string[];
 };
 
-const Filter: FC<FilterProps> = ({ year, author, genre }) => {
+export const Filter: FC<FilterProps> = ({ year, author, genre }) => {
   return (
     <div className={filter()}>
       <span className={filter('text')}>Искать по:</span>
@@ -22,5 +22,3 @@ const Filter: FC<FilterProps> = ({ year, author, genre }) => {
     </div>
   );
 };
-
-export default Filter;

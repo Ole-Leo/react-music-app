@@ -1,22 +1,22 @@
 import './AudioPlayer.css';
 
 import block from 'bem-cn-lite';
-import svgIcon from '../../assets/svg/sprite.svg';
-import PlayerBtn from './PlayerBtn';
-import PlayerControls from './PlayerControls';
-import PlayerTrack from './PlayerTrack';
-import PlayerVolume from './PlayerVolume';
-import PlayerProgress from './PlayerProgress';
-import { FC, useEffect, useRef, useState } from 'react';
-import { useAppSelector } from '../../hooks/reduxHook';
-import { useActions } from '../../store/actions';
 import { toggleHandler } from './utils';
-import usePlayerHook from './usePlayerHook';
-import AudioElement from './AudioElement';
+import { PlayerBtn } from './PlayerBtn';
+import { PlayerTrack } from './PlayerTrack';
+import { AudioElement } from './AudioElement';
+import { PlayerVolume } from './PlayerVolume';
+import { usePlayerHook } from './usePlayerHook';
+import { useActions } from '../../store/actions';
+import { PlayerControls } from './PlayerControls';
+import { PlayerProgress } from './PlayerProgress';
+import { useAppSelector } from '../../hooks/reduxHook';
+import { FC, useEffect, useRef, useState } from 'react';
+import svgIcon from '../../assets/svg/sprite.svg';
 
 export const audioPlayer = block('audioPlayer');
 
-const AudioPlayer: FC = () => {
+export const AudioPlayer: FC = () => {
   const [mute, setMute] = useState(false);
   const [repeat, setRepeat] = useState(false);
 
@@ -70,5 +70,3 @@ const AudioPlayer: FC = () => {
     </>
   );
 };
-
-export default AudioPlayer;

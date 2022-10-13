@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { TrackData } from '../models/types';
 import { useAppSelector } from './reduxHook';
 
-const useSortedTracks = (data: TrackData[]) => {
+export const useSortedTracks = (data: TrackData[]) => {
   const [sortedTracks, setSortedTracks] = useState(data);
   const { filter } = useAppSelector(state => state.filter);
   const author = Array.from(new Set(data.map(track => track.author)))
@@ -28,5 +28,3 @@ const useSortedTracks = (data: TrackData[]) => {
 
   return { author, genre, year, sortedTracks };
 };
-
-export { useSortedTracks };

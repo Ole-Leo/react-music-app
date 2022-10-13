@@ -7,7 +7,7 @@ type MenuItemProps = {
   text: string;
 };
 
-const MenuItem: FC<MenuItemProps> = ({ href, text }) => {
+export const MenuItem: FC<MenuItemProps> = ({ href, text }) => {
   return (
     <li className={nav('menu-item')}>
       <Link to={href} className={nav('menu-link')}>
@@ -16,5 +16,3 @@ const MenuItem: FC<MenuItemProps> = ({ href, text }) => {
     </li>
   );
 };
-
-export default MenuItem;

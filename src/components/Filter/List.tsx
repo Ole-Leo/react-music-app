@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { filter } from './Filter';
-import ListItem from './ListItem';
+import { ListItem } from './ListItem';
 
 type ListProps = {
   list: string[];
 };
 
-const List: FC<ListProps> = ({ list }) => {
+export const List: FC<ListProps> = ({ list }) => {
   return (
     <div className={filter('list-container')}>
       <ul className={filter('list')}>
@@ -16,5 +16,3 @@ const List: FC<ListProps> = ({ list }) => {
     </div>
   );
 };
-
-export default List;

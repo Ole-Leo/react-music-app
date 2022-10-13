@@ -9,8 +9,6 @@ type TitleProps = {
 
 const title = block('title');
 
-const Title: FC<TitleProps> = ({ text }) => {
+export const Title: FC<TitleProps> = ({ text }) => {
   return <h2 className={title()}>{text}</h2>;
 };
-
-export default Title;

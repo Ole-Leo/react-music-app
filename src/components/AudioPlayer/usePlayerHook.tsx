@@ -3,7 +3,7 @@ import { useAppSelector } from '../../hooks/reduxHook';
 import { useActions } from '../../store/actions';
 import { getRandomIndex } from './utils';
 
-const usePlayerHook = () => {
+export const usePlayerHook = () => {
   const [shuffled, setShuffled] = useState(false);
   const { getTrackIndex } = useActions();
   const { tracks, trackIndex } = useAppSelector(state => state.player);
@@ -36,5 +36,3 @@ const usePlayerHook = () => {
     prevTrackHandler,
   };
 };
-
-export default usePlayerHook;

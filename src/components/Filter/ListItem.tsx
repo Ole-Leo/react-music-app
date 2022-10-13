@@ -7,7 +7,7 @@ type ListItemProps = {
   name: string;
 };
 
-const ListItem: FC<ListItemProps> = ({ name }) => {
+export const ListItem: FC<ListItemProps> = ({ name }) => {
   const [checked, setChecked] = useState(false);
   const { addFilter, cleanFilter } = useActions();
   const { filter: filteredList } = useAppSelector(state => state.filter);
@@ -29,5 +29,3 @@ const ListItem: FC<ListItemProps> = ({ name }) => {
     </li>
   );
 };
-
-export default ListItem;

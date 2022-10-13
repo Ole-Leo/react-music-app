@@ -7,12 +7,10 @@ export type ButtonProps = {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Button: FC<ButtonProps> = ({ text, name, onClick }) => {
+export const Button: FC<ButtonProps> = ({ text, name, onClick }) => {
   return (
     <button className={filter('btn')} name={name} onClick={onClick}>
       {text}
     </button>
   );
 };
-
-export default Button;

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { playlist } from './Playlist';
 import svgIcon from '../../assets/svg/sprite.svg';
 
-const PlaylistHeader: FC = () => {
+export const PlaylistHeader: FC = () => {
   return (
     <div className={playlist('header')}>
       <div className={playlist('header', { track: true })}>ТРЕК</div>
@@ -16,5 +16,3 @@ const PlaylistHeader: FC = () => {
     </div>
   );
 };
-
-export default PlaylistHeader;

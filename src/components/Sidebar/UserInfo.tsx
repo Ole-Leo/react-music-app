@@ -5,7 +5,7 @@ import './Sidebar.css';
 
 const userInfo = block('user-info');
 
-const UserInfo: FC = () => {
+export const UserInfo: FC = () => {
   return (
     <div className={userInfo()}>
       <p className={userInfo('name')}>User Login</p>
@@ -13,5 +13,3 @@ const UserInfo: FC = () => {
     </div>
   );
 };
-
-export default UserInfo;

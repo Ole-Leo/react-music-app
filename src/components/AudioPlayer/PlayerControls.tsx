@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import PlayerBtn from './PlayerBtn';
-import svgIcon from '../../assets/svg/sprite.svg';
-import usePlayerHook from './usePlayerHook';
+import { PlayerBtn } from './PlayerBtn';
 import { toggleHandler } from './utils';
+import { usePlayerHook } from './usePlayerHook';
+import svgIcon from '../../assets/svg/sprite.svg';
 
 type PlayerControlsProps = {
   play: boolean;
@@ -11,7 +11,7 @@ type PlayerControlsProps = {
   isRepeatClicked?: boolean;
 };
 
-const PlayerControls: FC<PlayerControlsProps> = ({
+export const PlayerControls: FC<PlayerControlsProps> = ({
   play,
   onPlayPauseClick,
   onRepeat,
@@ -53,5 +53,3 @@ const PlayerControls: FC<PlayerControlsProps> = ({
     </>
   );
 };
-
-export default PlayerControls;

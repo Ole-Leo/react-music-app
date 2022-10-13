@@ -7,7 +7,7 @@ type PlayerTrackProps = {
   author: string;
 };
 
-const PlayerTrack: FC<PlayerTrackProps> = ({ title, author }) => {
+export const PlayerTrack: FC<PlayerTrackProps> = ({ title, author }) => {
   return (
     <div className={audioPlayer('track')}>
       <img
@@ -22,5 +22,3 @@ const PlayerTrack: FC<PlayerTrackProps> = ({ title, author }) => {
     </div>
   );
 };
-
-export default PlayerTrack;

@@ -1,14 +1,14 @@
 import { FC, useRef, useState } from 'react';
-import List from './List';
+import { List } from './List';
 import { filter } from './Filter';
-import Button, { ButtonProps } from './Button';
+import { Button, ButtonProps } from './Button';
 import { useOnClickOutside } from '../../hooks/useOutside';
 
 type FilteredListProps = ButtonProps & {
   list: string[];
 };
 
-const FilteredList: FC<FilteredListProps> = ({ text, name, list }) => {
+export const FilteredList: FC<FilteredListProps> = ({ text, name, list }) => {
   const ref = useRef(null);
   const [isListShown, setIsListShown] = useState(false);
 
@@ -25,5 +25,3 @@ const FilteredList: FC<FilteredListProps> = ({ text, name, list }) => {
     </div>
   );
 };
-
-export default FilteredList;

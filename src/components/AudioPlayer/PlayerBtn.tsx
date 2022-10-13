@@ -8,7 +8,7 @@ type PlayerBtnProps = {
   isClicked?: boolean;
 };
 
-const PlayerBtn: FC<PlayerBtnProps> = ({
+export const PlayerBtn: FC<PlayerBtnProps> = ({
   src,
   name,
   onClick,
@@ -25,5 +25,3 @@ const PlayerBtn: FC<PlayerBtnProps> = ({
     </button>
   );
 };
-
-export default PlayerBtn;

@@ -7,7 +7,7 @@ type AudioElementProps = {
   onTrackEnd?: VoidFunction;
 };
 
-const AudioElement = forwardRef<HTMLAudioElement, AudioElementProps>(
+export const AudioElement = forwardRef<HTMLAudioElement, AudioElementProps>(
   ({ src, mute, repeat, onTrackEnd }, ref) => {
     return (
       <audio
@@ -20,5 +20,3 @@ const AudioElement = forwardRef<HTMLAudioElement, AudioElementProps>(
     );
   }
 );
-
-export default AudioElement;

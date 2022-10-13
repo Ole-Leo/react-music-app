@@ -1,13 +1,13 @@
-import Filter from '../components/Filter/Filter';
-import Playlist from '../components/Playlist/Playlist';
-import Search from '../components/Search/Search';
-import Sidebar from '../components/Sidebar/Sidebar';
-import Title from '../components/Title/Title';
+import { Filter } from '../components/Filter/Filter';
+import { Playlist } from '../components/Playlist/Playlist';
+import { Search } from '../components/Search/Search';
+import { Sidebar } from '../components/Sidebar/Sidebar';
+import { Title } from '../components/Title/Title';
 import { useFilterTracks } from '../hooks/useFilteredTracks';
 import { useSortedTracks } from '../hooks/useSortedTracks';
 import { useGetTracksQuery } from '../store/tracksAPI';
 
-const MainPage = () => {
+export const MainPage = () => {
   const { data = [], isLoading } = useGetTracksQuery();
   const { searchQuery, filteredTracks, changeHandler } = useFilterTracks(data);
   const { author, genre, year, sortedTracks } = useSortedTracks(filteredTracks);
@@ -25,5 +25,3 @@ const MainPage = () => {
     </main>
   );
 };
-
-export default MainPage;

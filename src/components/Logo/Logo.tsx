@@ -5,12 +5,10 @@ type LogoProps = {
   href: string;
 };
 
-const Logo: FC<LogoProps> = ({ img, href }) => {
+export const Logo: FC<LogoProps> = ({ img, href }) => {
   return (
     <a href={href}>
       <img src={img} alt="logo" />
     </a>
   );
 };
-
-export default Logo;

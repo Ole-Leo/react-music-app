@@ -24,7 +24,7 @@ const collections = [
   },
 ];
 
-const PlaylistOffers = () => {
+export const PlaylistOffers = () => {
   return (
     <div className={playlistOffers()}>
       {collections.map((collection, index) => (
@@ -44,5 +44,3 @@ const PlaylistOffers = () => {
     </div>
   );
 };
-
-export default PlaylistOffers;

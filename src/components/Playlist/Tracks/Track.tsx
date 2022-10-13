@@ -1,11 +1,11 @@
-import './Tracks.css';
-
 import { FC, useMemo } from 'react';
 import block from 'bem-cn-lite';
 import trackIcon from '../../../assets/svg/track-icon.svg';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import { trackTime } from './utils';
 import { TrackData } from '../../../models/types';
+
+import './Tracks.css';
 
 const track = block('track');
 
@@ -14,7 +14,7 @@ export type TrackProps = TrackData & {
   isActive?: boolean;
 };
 
-const Track: FC<TrackProps> = ({
+export const Track: FC<TrackProps> = ({
   name,
   author,
   album,
@@ -41,5 +41,3 @@ const Track: FC<TrackProps> = ({
     </div>
   );
 };
-
-export default Track;

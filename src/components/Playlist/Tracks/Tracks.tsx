@@ -1,10 +1,11 @@
-import './Tracks.css';
-import { FC } from 'react';
 import block from 'bem-cn-lite';
-import Track from './Track';
+import { FC } from 'react';
+import { Track } from './Track';
 import { useActions } from '../../../store/actions';
 import { TrackData } from '../../../models/types';
 import { useAppSelector } from '../../../hooks/reduxHook';
+
+import './Tracks.css';
 
 const tracks = block('tracks');
 
@@ -12,7 +13,7 @@ type TracksProps = {
   trackList: TrackData[];
 };
 
-const Tracks: FC<TracksProps> = ({ trackList }) => {
+export const Tracks: FC<TracksProps> = ({ trackList }) => {
   const { getTrackIndex, setPlay, addTracks } = useActions();
   const { trackIndex, tracks: songs } = useAppSelector(state => state.player);
 
@@ -35,5 +36,3 @@ const Tracks: FC<TracksProps> = ({ trackList }) => {
     </div>
   );
 };
-
-export default Tracks;
