@@ -1,14 +1,10 @@
-import block from 'bem-cn-lite';
-
 import { Link } from 'react-router-dom';
 import playlist1 from '../../assets/img/playlist1.png';
 import playlist2 from '../../assets/img/playlist2.png';
 import playlist3 from '../../assets/img/playlist3.png';
 
-const playlistOffers = block('playlist-offers');
-const playlistOffer = block('playlist-offer');
+import styles from './styles.module.css';
 
-// const collections = [playlist1, playlist2, playlist3];
 const collections = [
   {
     picture: playlist1,
@@ -26,19 +22,19 @@ const collections = [
 
 export const PlaylistOffers = () => {
   return (
-    <div className={playlistOffers()}>
+    <div className={styles.offers}>
       {collections.map((collection, index) => (
         <Link
-          className={playlistOffer()}
+          className={styles.offer}
           to={`/collection/${index + 1}`}
           key={collection.name}
         >
           <img
-            className={playlistOffer('img')}
+            className={styles.offerImg}
             src={collection.picture}
             alt={collection.picture}
           />
-          <span className={playlistOffer('text')}>{collection.name}</span>
+          <span className={styles.offerText}>{collection.name}</span>
         </Link>
       ))}
     </div>

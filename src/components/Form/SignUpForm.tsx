@@ -1,7 +1,7 @@
 import { FC, FormEvent } from 'react';
 import block from 'bem-cn-lite';
-import Logo from '../Logo/Logo';
-import Button from './Button';
+import { Logo } from '../Logo/Logo';
+import { Button } from '../Button/Button';
 import Input from './Input';
 import logoBlack from '../../assets/svg/logo-black.svg';
 
@@ -26,7 +26,7 @@ const SignUpForm: FC = () => {
           <Input type="password" placeholder="Повторите пароль" />
         </div>
         <div className={form('buttons')}>
-          <Button btnText="Зарегистрироваться" type="enter" />
+          <Button>Зарегистрироваться</Button>
         </div>
       </form>
     </div>

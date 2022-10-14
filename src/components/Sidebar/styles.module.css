@@ -4,26 +4,7 @@
   padding: 0 90px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
-}
-
-.user-info__name {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.user-info__avatar {
-  width: 43px;
-  height: 43px;
-  background-color: #313131;
-  border-radius: 50%;
-}
-
-.playlist-offers {
+.offers {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +13,7 @@
   padding-top: 260px;
 }
 
-.playlist-offer {
+.offer {
   position: relative;
 
   display: flex;
@@ -48,15 +29,15 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.playlist-offer:hover {
+.offer:hover {
   opacity: 0.85;
 }
 
-.playlist-offer__img {
+.offerImg {
   width: 250px;
 }
 
-.playlist-offer__text {
+.offerText {
   position: absolute;
   text-shadow: 1px 1px 10px #313131;
 }

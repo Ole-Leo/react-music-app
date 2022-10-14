@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 type LogoProps = {
   img: string;
@@ -7,8 +8,8 @@ type LogoProps = {
 
 export const Logo: FC<LogoProps> = ({ img, href }) => {
   return (
-    <a href={href}>
+    <Link to={href}>
       <img src={img} alt="logo" />
-    </a>
+    </Link>
   );
 };

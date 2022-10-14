@@ -1,10 +1,7 @@
-import './Filter.css';
-
 import { FC } from 'react';
-import block from 'bem-cn-lite';
 import { FilteredList } from './FilteredList';
 
-export const filter = block('filter');
+import styles from './styles.module.css';
 
 type FilterProps = {
   year: string[];
@@ -14,8 +11,8 @@ type FilterProps = {
 
 export const Filter: FC<FilterProps> = ({ year, author, genre }) => {
   return (
-    <div className={filter()}>
-      <span className={filter('text')}>Искать по:</span>
+    <div className={styles.filter}>
+      <span className={styles.text}>Искать по:</span>
       <FilteredList text="году выпуска" name="year" list={year} />
       <FilteredList text="исполнителю" name="artist" list={author} />
       <FilteredList text="жанру" name="genre" list={genre} />

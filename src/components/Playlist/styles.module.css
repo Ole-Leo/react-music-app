@@ -2,7 +2,7 @@
   margin-top: 36px;
 }
 
-.playlist__header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,24 +16,25 @@
   color: #696969;
 }
 
-.playlist__header_track {
-  width: 480px;
+.track {
+  width: 42%;
 }
 
-.playlist__header_performer {
-  width: 321px;
+.performer {
+  width: 29%;
 }
 
-.playlist__header_album {
-  width: 245px;
+.album {
+  width: 22%;
 }
 
-.playlist__header_time {
+.time {
+  display: flex;
   flex-grow: 1;
   justify-content: flex-end;
 }
 
-.playlist__header_time-svg {
+.timeSvg {
   margin: 0;
   width: 12px;
   height: 12px;

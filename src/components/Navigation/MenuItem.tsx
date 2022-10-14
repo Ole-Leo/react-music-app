@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { nav } from './Navigation';
 import { Link } from 'react-router-dom';
+
+import styles from './styles.module.css';
 
 type MenuItemProps = {
   href: string;
@@ -9,8 +10,8 @@ type MenuItemProps = {
 
 export const MenuItem: FC<MenuItemProps> = ({ href, text }) => {
   return (
-    <li className={nav('menu-item')}>
-      <Link to={href} className={nav('menu-link')}>
+    <li className={styles.menuItem}>
+      <Link to={href} className={styles.menuLink}>
         {text}
       </Link>
     </li>

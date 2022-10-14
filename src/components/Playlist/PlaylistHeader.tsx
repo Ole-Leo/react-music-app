@@ -1,15 +1,16 @@
 import { FC } from 'react';
-import { playlist } from './Playlist';
 import svgIcon from '../../assets/svg/sprite.svg';
+
+import styles from './styles.module.css';
 
 export const PlaylistHeader: FC = () => {
   return (
-    <div className={playlist('header')}>
-      <div className={playlist('header', { track: true })}>ТРЕК</div>
-      <div className={playlist('header', { performer: true })}>ИСПОЛНИТЕЛЬ</div>
-      <div className={playlist('header', { album: true })}>АЛЬБОМ</div>
-      <div className={playlist('header', { time: true })}>
-        <svg className={playlist('header', { 'time-svg': true })}>
+    <div className={styles.header}>
+      <div className={styles.track}>ТРЕК</div>
+      <div className={styles.performer}>ИСПОЛНИТЕЛЬ</div>
+      <div className={styles.album}>АЛЬБОМ</div>
+      <div className={styles.time}>
+        <svg className={styles.timeSvg}>
           <use xlinkHref={`${svgIcon}#time`}></use>
         </svg>
       </div>

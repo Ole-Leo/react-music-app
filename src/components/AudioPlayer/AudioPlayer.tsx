@@ -1,6 +1,3 @@
-import './AudioPlayer.css';
-
-import block from 'bem-cn-lite';
 import { toggleHandler } from './utils';
 import { PlayerBtn } from './PlayerBtn';
 import { PlayerTrack } from './PlayerTrack';
@@ -14,7 +11,7 @@ import { useAppSelector } from '../../hooks/reduxHook';
 import { FC, useEffect, useRef, useState } from 'react';
 import svgIcon from '../../assets/svg/sprite.svg';
 
-export const audioPlayer = block('audioPlayer');
+import styles from './styles.module.css';
 
 export const AudioPlayer: FC = () => {
   const [mute, setMute] = useState(false);
@@ -39,7 +36,7 @@ export const AudioPlayer: FC = () => {
   return (
     <>
       {currentTrack && (
-        <div className={audioPlayer()}>
+        <div className={styles.player}>
           <AudioElement
             ref={audioRef}
             src={currentTrack.track_file}
@@ -48,7 +45,7 @@ export const AudioPlayer: FC = () => {
             onTrackEnd={nextTrackHandler}
           />
           <PlayerProgress />
-          <div className={audioPlayer('content')}>
+          <div className={styles.content}>
             <PlayerControls
               play={isPlay}
               onPlayPauseClick={togglePlayPause}

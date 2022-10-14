@@ -1,17 +1,23 @@
 import { FC, FormEvent } from 'react';
 import block from 'bem-cn-lite';
-import Logo from '../Logo/Logo';
-import Button from './Button';
+import { Logo } from '../Logo/Logo';
 import Input from './Input';
 import logoBlack from '../../assets/svg/logo-black.svg';
+import { Button } from '../Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 import './Form.css';
 
 export const form = block('form');
 
 const LoginForm: FC = () => {
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate('/register');
+  };
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    navigate('/tracks');
   };
 
   return (
@@ -25,8 +31,10 @@ const LoginForm: FC = () => {
           <Input type="password" placeholder="Пароль" />
         </div>
         <div className={form('buttons')}>
-          <Button btnText="Войти" type="enter" />
-          <Button btnText="Зарегистрироваться" type="sign-up" />
+          <Button>Войти</Button>
+          <Button btnType="button" type="outlined" onClick={clickHandler}>
+            Зарегистрироваться
+          </Button>
         </div>
       </form>
     </div>

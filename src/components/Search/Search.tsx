@@ -1,10 +1,7 @@
 import { FC } from 'react';
-import block from 'bem-cn-lite';
 import svgIcon from '../../assets/svg/sprite.svg';
 
-import './Search.css';
-
-const search = block('search');
+import styles from './styles.module.css';
 
 type SearchProps = {
   query: string;
@@ -13,12 +10,12 @@ type SearchProps = {
 
 export const Search: FC<SearchProps> = ({ query, onChange }) => {
   return (
-    <div className={search()}>
-      <svg className={search('icon')}>
+    <div className={styles.search}>
+      <svg className={styles.icon}>
         <use xlinkHref={`${svgIcon}#search`}></use>
       </svg>
       <input
-        className={search('input')}
+        className={styles.input}
         type="search"
         placeholder="Поиск"
         value={query}

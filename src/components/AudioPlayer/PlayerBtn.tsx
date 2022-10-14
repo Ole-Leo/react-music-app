@@ -1,5 +1,7 @@
 import { FC } from 'react';
-import { audioPlayer } from './AudioPlayer';
+import classNames from 'classnames';
+
+import styles from './styles.module.css';
 
 type PlayerBtnProps = {
   src: string;
@@ -16,10 +18,14 @@ export const PlayerBtn: FC<PlayerBtnProps> = ({
 }) => {
   return (
     <button
-      className={audioPlayer(`btn`, { [`${name}`]: true, active: isClicked })}
+      className={classNames(
+        styles.button,
+        styles[`${name}`],
+        isClicked && styles.active
+      )}
       onClick={onClick}
     >
-      <svg className={audioPlayer(`btn`, { [`svg-${name}`]: true })}>
+      <svg className={classNames(styles.button, styles[`svg-${name}`])}>
         <use xlinkHref={src}></use>
       </svg>
     </button>

@@ -1,5 +1,6 @@
 import { FC, MouseEvent } from 'react';
-import { filter } from './Filter';
+
+import styles from './styles.module.css';
 
 export type ButtonProps = {
   text: string;
@@ -9,7 +10,7 @@ export type ButtonProps = {
 
 export const Button: FC<ButtonProps> = ({ text, name, onClick }) => {
   return (
-    <button className={filter('btn')} name={name} onClick={onClick}>
+    <button className={styles.button} name={name} onClick={onClick}>
       {text}
     </button>
   );

@@ -1,8 +1,9 @@
-import { FC, useRef, useState } from 'react';
 import { List } from './List';
-import { filter } from './Filter';
+import { FC, useRef, useState } from 'react';
 import { Button, ButtonProps } from './Button';
 import { useOnClickOutside } from '../../hooks/useOutside';
+
+import styles from './styles.module.css';
 
 type FilteredListProps = ButtonProps & {
   list: string[];
@@ -19,7 +20,7 @@ export const FilteredList: FC<FilteredListProps> = ({ text, name, list }) => {
   };
 
   return (
-    <div className={filter('filteredList')}>
+    <div className={styles.filteredList}>
       <Button text={text} name={name} onClick={toggleList} />
       <div ref={ref}>{isListShown && <List list={list} />}</div>
     </div>

@@ -1,13 +1,11 @@
-import { FC, useMemo } from 'react';
-import block from 'bem-cn-lite';
-import trackIcon from '../../../assets/svg/track-icon.svg';
-import svgIcon from '../../../assets/svg/sprite.svg';
 import { trackTime } from './utils';
+import classNames from 'classnames';
+import { FC, useMemo } from 'react';
 import { TrackData } from '../../../models/types';
+import svgIcon from '../../../assets/svg/sprite.svg';
+import trackIcon from '../../../assets/svg/track-icon.svg';
 
-import './Tracks.css';
-
-const track = block('track');
+import styles from './styles.module.css';
 
 export type TrackProps = TrackData & {
   onClick?: VoidFunction;
@@ -25,18 +23,18 @@ export const Track: FC<TrackProps> = ({
   const memoTrackTime = useMemo(() => trackTime(duration), [duration]);
 
   return (
-    <div className={track({ active: isActive })}>
-      <div className={track('title')} onClick={onClick}>
-        <img className={track('title-img')} src={trackIcon} alt="track-icon" />
-        <div className={track('title-text')}>{name}</div>
+    <div className={classNames(styles.track, isActive && styles.active)}>
+      <div className={styles.title} onClick={onClick}>
+        <img className={styles.titleImg} src={trackIcon} alt="track-icon" />
+        <div className={styles.titleText}>{name}</div>
       </div>
-      <div className={track('performer')}>{author}</div>
-      <div className={track('album')}>{album}</div>
-      <div className={track('time')}>
-        <svg className={track('time-like')}>
+      <div className={styles.performer}>{author}</div>
+      <div className={styles.album}>{album}</div>
+      <div className={styles.time}>
+        <svg className={styles.timeLike}>
           <use xlinkHref={`${svgIcon}#like`}></use>
         </svg>
-        <div className={track('time-time')}>{memoTrackTime}</div>
+        <div className={styles.timeTime}>{memoTrackTime}</div>
       </div>
     </div>
   );

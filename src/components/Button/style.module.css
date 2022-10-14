@@ -1,0 +1,92 @@
+.button {
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  font-weight: 400;
+
+  text-align: center;
+
+  min-height: 52px;
+  padding: 16px;
+
+  border-radius: 46px;
+  outline: none;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.action {
+  color: #fff;
+  background-color: #580ea2;
+  border: 1px solid #580ea2;
+}
+
+.action:hover {
+  background-color: #3f007d;
+  border: 1px solid #3f007d;
+}
+
+.action:active {
+  background-color: #271a58;
+  border: 1px solid #271a58;
+}
+
+.outlined {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #d0cece;
+}
+
+.outlined:hover {
+  background: #f4f5f6;
+}
+
+.outlined:active {
+  background: #d9d9d9;
+}
+
+.disabled,
+.disabled:hover,
+.disabled:active {
+  color: #909090;
+  background-color: #ededed;
+  border: 1px solid #d0cece;
+
+  transform: none;
+  cursor: default;
+}
+
+.secondary {
+  font-size: 16px;
+  color: #ffffff;
+
+  min-height: 36px;
+  padding: 6px;
+
+  background-color: #140d40;
+  border: 1px solid #140d40;
+}
+
+.secondary:hover {
+  background-color: #2d1f79;
+  border: 1px solid #2d1f79;
+}
+
+.secondary:active {
+  background-color: #3b29a1;
+  border: 1px solid #3b29a1;
+}
+
+.l {
+  width: 278px;
+}
+
+.m {
+  width: 147px;
+}
+
+.s {
+  width: 77px;
+}

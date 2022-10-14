@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { Playlist } from '../components/Playlist/Playlist';
+import { Title } from '../components/Title/Title';
 import { Search } from '../components/Search/Search';
 import { Sidebar } from '../components/Sidebar/Sidebar';
-import { Title } from '../components/Title/Title';
-import { useFilterTracks } from '../hooks/useFilteredTracks';
 import { useGetCollectionQuery } from '../store/tracksAPI';
+import { Playlist } from '../components/Playlist/Playlist';
+import { useFilterTracks } from '../hooks/useFilteredTracks';
+import { Navigation } from '../components/Navigation/Navigation';
 
 export const CollectionPage = () => {
   const { id } = useParams();
@@ -14,7 +15,8 @@ export const CollectionPage = () => {
   );
 
   return (
-    <main className="main">
+    <main className="content">
+      <Navigation />
       <div className="main-content">
         <Search query={searchQuery} onChange={changeHandler} />
         <Title text={data?.name} />

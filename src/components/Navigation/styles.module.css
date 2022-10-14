@@ -7,7 +7,7 @@
   padding-left: 36px;
 }
 
-.nav__burger-svg {
+.burgerSvg {
   width: 20px;
   height: 12px;
   cursor: pointer;
@@ -16,15 +16,15 @@
   transition: stroke 0.2s ease-in-out;
 }
 
-.nav__burger-svg:hover {
+.burgerSvg:hover {
   stroke: #d9b6ff;
 }
 
-.nav__burger-svg:active {
+.burgerSvg:active {
   stroke: #ad61ff;
 }
 
-.nav__menu {
+.menu {
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -35,17 +35,17 @@
   list-style: none;
 }
 
-.nav__menu-link {
+.menuLink {
   color: inherit;
   text-decoration: none;
 
   transition: all 0.2s ease-in-out;
 }
 
-.nav__menu-link:hover {
+.menuLink:hover {
   color: #d9b6ff;
 }
 
-.nav__menu-link:active {
+.menuLink:active {
   color: #ad61ff;
 }

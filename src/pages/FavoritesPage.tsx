@@ -1,9 +1,10 @@
-import { Playlist } from '../components/Playlist/Playlist';
+import { MUSIC_DATA } from '../data';
+import { Title } from '../components/Title/Title';
 import { Search } from '../components/Search/Search';
 import { Sidebar } from '../components/Sidebar/Sidebar';
-import { Title } from '../components/Title/Title';
-import { MUSIC_DATA } from '../data';
+import { Playlist } from '../components/Playlist/Playlist';
 import { useFilterTracks } from '../hooks/useFilteredTracks';
+import { Navigation } from '../components/Navigation/Navigation';
 
 export const FavoritesPage = () => {
   const data = MUSIC_DATA;
@@ -11,7 +12,8 @@ export const FavoritesPage = () => {
   const { searchQuery, filteredTracks, changeHandler } = useFilterTracks(data);
 
   return (
-    <main className="main">
+    <main className="content">
+      <Navigation />
       <div className="main-content">
         <Search query={searchQuery} onChange={changeHandler} />
         <Title text="Мои треки" />

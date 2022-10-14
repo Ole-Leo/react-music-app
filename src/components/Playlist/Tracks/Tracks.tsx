@@ -1,13 +1,10 @@
-import block from 'bem-cn-lite';
 import { FC } from 'react';
 import { Track } from './Track';
 import { useActions } from '../../../store/actions';
 import { TrackData } from '../../../models/types';
 import { useAppSelector } from '../../../hooks/reduxHook';
 
-import './Tracks.css';
-
-const tracks = block('tracks');
+import styles from './styles.module.css';
 
 type TracksProps = {
   trackList: TrackData[];
@@ -24,7 +21,7 @@ export const Tracks: FC<TracksProps> = ({ trackList }) => {
   };
 
   return (
-    <div className={tracks()}>
+    <div className={styles.tracks}>
       {trackList.map((song, i) => (
         <Track
           key={song.id}

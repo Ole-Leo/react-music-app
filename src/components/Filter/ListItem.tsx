@@ -1,7 +1,9 @@
 import { FC, useEffect, useState } from 'react';
-import { useAppSelector } from '../../hooks/reduxHook';
 import { useActions } from '../../store/actions';
-import { filter } from './Filter';
+import { useAppSelector } from '../../hooks/reduxHook';
+import classNames from 'classnames';
+
+import styles from './styles.module.css';
 
 type ListItemProps = {
   name: string;
@@ -22,7 +24,7 @@ export const ListItem: FC<ListItemProps> = ({ name }) => {
 
   return (
     <li
-      className={filter('listItem', { active: checked })}
+      className={classNames(styles.listItem, checked && styles.active)}
       onClick={() => toggleClick(name)}
     >
       {name}

@@ -30,50 +30,50 @@
   color: #d9b6ff;
 }
 
-.track.track_active {
+.track.active {
   background: #222222;
   color: #ad61ff;
 }
 
-.track__title {
+.title {
   display: flex;
   align-items: center;
-  width: 480px;
+  width: 42%;
 }
 
-.track__title-img {
+.titleImg {
   width: 51px;
   height: 51px;
   margin-right: 17px;
 }
 
-.track__performer {
-  width: 321px;
+.performer {
+  width: 29%;
 }
 
-.track__album {
-  width: 245px;
+.album {
+  width: 22%;
 
   color: #696969;
 }
 
-.track__time {
-  flex-grow: 1;
+.time {
   display: flex;
-  justify-content: flex-end;
+  flex-grow: 1;
   align-items: center;
+  justify-content: flex-end;
   gap: 17px;
 
   color: #696969;
 }
 
-.track__time-time {
+.timeTime {
   width: 35px;
   padding-right: 5px;
   text-align: end;
 }
 
-.track__time-like {
+.timeLike {
   width: 14px;
   height: 12px;
   fill: transparent;
@@ -83,20 +83,19 @@
   transition: all 0.2s ease-in-out;
 }
 
-.track__time-like:hover {
+.timeLike:hover {
   stroke: #fff;
 }
 
-.track__time-like:active {
-  fill: #696969;
+.timeLike:active {
+  fill: #ad61ff;
 }
 
-.track.track_active > .track__album,
-.track.track_active > .track__time {
+.track.active > .album,
+.track.active > .time {
   color: #d9b6ff;
 }
 
-.track.track_active > .track__time > .track__time-like {
-  /* fill: transparent; */
+.track.active > .time > .timeLike {
   stroke: #d9b6ff;
 }

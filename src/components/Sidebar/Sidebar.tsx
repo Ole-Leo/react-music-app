@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import block from 'bem-cn-lite';
+import { User } from '../User/User';
 import { PlaylistOffers } from './PlaylistOffers';
-import { UserInfo } from './UserInfo';
 
-const sidebar = block('sidebar');
+import styles from './styles.module.css';
 
 type SidebarProps = {
   isOffersShown?: boolean;
@@ -11,8 +10,8 @@ type SidebarProps = {
 
 export const Sidebar: FC<SidebarProps> = ({ isOffersShown = true }) => {
   return (
-    <div className={sidebar()}>
-      <UserInfo />
+    <div className={styles.sidebar}>
+      <User />
       {isOffersShown && <PlaylistOffers />}
     </div>
   );

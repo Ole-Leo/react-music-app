@@ -14,14 +14,8 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns: 244px auto;
+  grid-template-columns: 244px auto 430px;
 
   padding-top: 30px;
   min-height: 100vh;
-}
-
-.main {
-  display: flex;
-  /* gap: 90px; */
-  padding-left: 50px;
 }

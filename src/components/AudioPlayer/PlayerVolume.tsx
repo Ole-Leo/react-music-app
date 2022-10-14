@@ -1,7 +1,8 @@
 import { PlayerBtn } from './PlayerBtn';
-import { audioPlayer } from './AudioPlayer';
 import { forwardRef, useState } from 'react';
 import svgIcon from '../../assets/svg/sprite.svg';
+
+import styles from './styles.module.css';
 
 type PlayerVolumeProps = {
   onClick?: VoidFunction;
@@ -23,11 +24,11 @@ export const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
     };
 
     return (
-      <div className={audioPlayer('volume')}>
+      <div className={styles.volume}>
         <PlayerBtn src={`${svgIcon}#volume`} name="volume" onClick={onClick} />
         <input
           type="range"
-          className={audioPlayer('volume-input')}
+          className={styles.volumeInput}
           value={volume}
           onChange={changeVolumeHandler}
         />
