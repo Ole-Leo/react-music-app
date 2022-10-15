@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import LoginForm from './components/Form/LoginForm';
-import SignUpForm from './components/Form/SignUpForm';
+import { LoginForm } from './pages/AuthForm/LoginForm';
+import { SignUpForm } from './pages/AuthForm/SignUpForm';
+
 import { CollectionPage } from './pages/CollectionPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { MainPage } from './pages/MainPage';
