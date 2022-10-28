@@ -10,7 +10,8 @@ import logoBlack from '../../assets/svg/logo-black.svg';
 import styles from './style.module.css';
 
 const validEmail = new RegExp(/^[\w]{1}[\w-.]*@[\w-]+\.\w{2,3}$/i);
-const validPasswordLength = 6;
+const validPassword = new RegExp(/^\d?(?:.*[a-zа-яА-Я])$/gi);
+const validPasswordLength = 8;
 
 export const SignUpForm: FC = () => {
   const navigate = useNavigate();
@@ -62,6 +63,10 @@ export const SignUpForm: FC = () => {
               minLength: {
                 value: validPasswordLength,
                 message: `Пароль должен быть не менее ${validPasswordLength} символов`,
+              },
+              pattern: {
+                value: validPassword,
+                message: `Пароль должен содержать буквы`,
               },
             })}
           />

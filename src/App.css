@@ -14,7 +14,7 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns: 244px auto 430px;
+  grid-template-columns: 240px auto 430px;
 
   padding-top: 30px;
   min-height: 100vh;
