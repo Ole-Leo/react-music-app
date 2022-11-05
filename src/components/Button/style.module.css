@@ -8,6 +8,7 @@
   text-align: center;
 
   min-height: 52px;
+  width: 278px;
   padding: 16px;
 
   border-radius: 46px;
@@ -34,8 +35,8 @@
 }
 
 .outlined {
-  color: #000000;
-  background-color: #ffffff;
+  color: #000;
+  background-color: #fff;
   border: 1px solid #d0cece;
 }
 
@@ -60,7 +61,7 @@
 
 .secondary {
   font-size: 16px;
-  color: #ffffff;
+  color: #fff;
 
   min-height: 36px;
   padding: 6px;
@@ -77,16 +78,4 @@
 .secondary:active {
   background-color: #3b29a1;
   border: 1px solid #3b29a1;
-}
-
-.l {
-  width: 278px;
-}
-
-.m {
-  width: 147px;
-}
-
-.s {
-  width: 77px;
 }

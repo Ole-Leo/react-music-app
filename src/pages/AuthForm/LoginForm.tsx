@@ -1,32 +1,44 @@
+import {
+  errorText,
+  validEmail,
+  validPassword,
+  validPasswordLength,
+} from '../../models/utils';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { FormData } from '../../models/types';
+import { AuthData } from '../../models/types';
 import { useNavigate } from 'react-router-dom';
 import { Logo } from '../../components/Logo/Logo';
+import { useAuthHook } from '../../hooks/useAuthHook';
 import { Button } from '../../components/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import logoBlack from '../../assets/svg/logo-black.svg';
 
 import styles from './style.module.css';
-
-const validEmail = new RegExp(/^[\w]{1}[\w-.]*@[\w-]+\.\w{2,3}$/i);
-const validPassword = new RegExp(/^\d?(?:.*[a-zа-яА-Я])$/gi);
-const validPasswordLength = 8;
+import { useLoginUserMutation } from '../../store/api/authAPI';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();
+  const [loginUser, { isSuccess }] = useLoginUserMutation();
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm<FormData>({ mode: 'onTouched' });
+  } = useForm<AuthData>({ mode: 'onTouched' });
 
-  const onSubmit: SubmitHandler<FormData> = data => {
+  const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
+    loginUser,
+    isSuccess,
+    isValid,
+    reset,
+    errorText.loginError
+  );
+
+  const onSubmit: SubmitHandler<AuthData> = async data => {
     console.log(data);
-    isValid && navigate('/tracks');
-    reset();
+    await authHandler(data);
   };
 
   const clickHandler = () => {
@@ -43,13 +55,14 @@ export const LoginForm: FC = () => {
         </div>
         <div className={styles.inputs}>
           <input
+            onFocus={focusHandler}
             className={styles.input}
             placeholder="E-mail"
             {...register('email', {
-              required: 'Введите адрес эл. почты',
+              required: 'Введите email',
               pattern: {
                 value: validEmail,
-                message: 'Введите корректный адрес',
+                message: 'Введите корректный email',
               },
             })}
           />
@@ -58,6 +71,7 @@ export const LoginForm: FC = () => {
           </p>
 
           <input
+            onFocus={focusHandler}
             className={inputPasswordStyle}
             placeholder="Пароль"
             type="password"
@@ -77,10 +91,13 @@ export const LoginForm: FC = () => {
             {errors.password && <span>{errors.password.message}</span>}
           </p>
         </div>
+        <p className={classNames(styles.error, styles.back)}>
+          {error && <span>{error}</span>}
+        </p>
         <div className={styles.buttons}>
-          <Button>{'Войти'}</Button>
+          <Button btnStatus={isBlocked ? 'disabled' : 'normal'}>Войти</Button>
           <Button type="outlined" btnType="button" onClick={clickHandler}>
-            {'Зарегистрироваться'}
+            Зарегистрироваться
           </Button>
         </div>
       </form>

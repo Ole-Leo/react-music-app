@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import cn from 'classnames';
 
 import styles from './style.module.css';
@@ -6,16 +6,15 @@ import styles from './style.module.css';
 export type ButtonProps = {
   type?: 'action' | 'outlined' | 'secondary';
   size?: 's' | 'm' | 'l';
-  buttonStatus?: 'normal' | 'disabled';
-  children?: string;
+  btnStatus?: 'normal' | 'disabled';
+  children?: ReactNode;
   btnType?: 'button' | 'submit' | 'reset';
   onClick?: VoidFunction;
 };
 
 export const Button: FC<ButtonProps> = ({
   type = 'action',
-  buttonStatus = 'normal',
-  size = 'l',
+  btnStatus = 'normal',
   children,
   btnType,
   onClick,
@@ -23,13 +22,17 @@ export const Button: FC<ButtonProps> = ({
   const buttonClassName = cn(
     styles.button,
     styles[`${type}`],
-    styles[`${buttonStatus}`],
-    styles[`${size}`]
+    styles[`${btnStatus}`]
   );
 
   return (
-    <button className={buttonClassName} onClick={onClick} type={btnType}>
-      {children ? children : ''}
+    <button
+      type={btnType}
+      onClick={onClick}
+      className={buttonClassName}
+      disabled={btnStatus === 'disabled'}
+    >
+      {children}
     </button>
   );
 };

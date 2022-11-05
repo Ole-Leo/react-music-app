@@ -32,8 +32,20 @@ export type PlayerData = {
   isPlaying: boolean;
 };
 
-export type FormData = {
-  email: string
-  password: string
-  confirmPassword?: string
-}
+export type AuthData = {
+  username?: string;
+  email: string;
+  password: string;
+  confirmPassword?: string;
+};
+
+// export type LoginUser = {
+//   email: string;
+//   password: string;
+// };
+
+// export type SignupUser = {
+//   username: string;
+//   email: string;
+//   password: string;
+// };
