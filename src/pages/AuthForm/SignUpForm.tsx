@@ -3,10 +3,10 @@ import {
   validEmail,
   validPassword,
   validPasswordLength,
-} from '../../models/utils';
+} from '../../models/const';
 import { FC } from 'react';
 import classNames from 'classnames';
-import { AuthData } from '../../models/types';
+import { AuthUserData } from '../../models/types';
 import { Logo } from '../../components/Logo/Logo';
 import { useAuthHook } from '../../hooks/useAuthHook';
 import logoBlack from '../../assets/svg/logo-black.svg';
@@ -17,24 +17,23 @@ import { useSignUpUserMutation } from '../../store/api/authAPI';
 import styles from './style.module.css';
 
 export const SignUpForm: FC = () => {
-  const [signUpUser, { isSuccess }] = useSignUpUserMutation();
+  const [signUpUser] = useSignUpUserMutation();
   const {
     register,
     handleSubmit,
     reset,
     getValues,
     formState: { errors, isValid },
-  } = useForm<AuthData>({ mode: 'onTouched' });
+  } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
     signUpUser,
-    isSuccess,
     isValid,
     reset,
     errorText.signUpError
   );
 
-  const onSubmit: SubmitHandler<AuthData> = async data => {
+  const onSubmit: SubmitHandler<AuthUserData> = async data => {
     console.log(data);
     await authHandler(data);
   };

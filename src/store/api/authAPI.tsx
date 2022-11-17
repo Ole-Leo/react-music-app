@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { AuthData } from '../../models/types';
-import { URL } from '../../models/utils';
+import { AuthUserData } from '../../models/types';
+import { URL } from '../../models/const';
 
 export const authAPI = createApi({
   reducerPath: 'authAPI',
@@ -10,14 +10,14 @@ export const authAPI = createApi({
   }),
   endpoints: build => ({
     loginUser: build.mutation({
-      query: (body: AuthData) => ({
+      query: (body: AuthUserData) => ({
         url: 'user/login/',
         method: 'POST',
         body,
       }),
     }),
     signUpUser: build.mutation({
-      query: (body: AuthData) => ({
+      query: (body: AuthUserData) => ({
         url: 'user/signup/',
         method: 'POST',
         body,

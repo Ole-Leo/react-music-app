@@ -1,11 +1,3 @@
-export type User = {
-  id: number;
-  username: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-};
-
 export type TrackData = {
   id: number;
   name: string;
@@ -32,20 +24,15 @@ export type PlayerData = {
   isPlaying: boolean;
 };
 
-export type AuthData = {
-  username?: string;
+export type User = {
+  id?: number;
+  username: string;
+  first_name?: string;
+  last_name?: string;
   email: string;
-  password: string;
-  confirmPassword?: string;
 };
 
-// export type LoginUser = {
-//   email: string;
-//   password: string;
-// };
-
-// export type SignupUser = {
-//   username: string;
-//   email: string;
-//   password: string;
-// };
+export type AuthUserData = User & {
+  password?: string;
+  confirmPassword?: string;
+};
