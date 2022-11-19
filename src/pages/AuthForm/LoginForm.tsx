@@ -19,7 +19,7 @@ import { useLoginUserMutation } from '../../store/api/authAPI';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();
-  const [loginUser] = useLoginUserMutation();
+  const [loginUser, { data: userData, isSuccess }] = useLoginUserMutation();
 
   const {
     register,
@@ -29,8 +29,9 @@ export const LoginForm: FC = () => {
   } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
+    userData,
     loginUser,
-
+    isSuccess,
     isValid,
     reset,
     errorText.loginError

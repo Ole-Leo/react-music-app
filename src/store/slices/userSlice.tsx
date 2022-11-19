@@ -10,8 +10,8 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    addUser: (state, action: PayloadAction<string>) => {
-      state.email = action.payload;
+    addUser: (_, action: PayloadAction<AuthUserData>) => {
+      return action.payload;
     },
   },
 });

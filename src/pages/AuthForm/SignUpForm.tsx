@@ -17,7 +17,7 @@ import { useSignUpUserMutation } from '../../store/api/authAPI';
 import styles from './style.module.css';
 
 export const SignUpForm: FC = () => {
-  const [signUpUser] = useSignUpUserMutation();
+  const [signUpUser, { data: userData, isSuccess }] = useSignUpUserMutation();
   const {
     register,
     handleSubmit,
@@ -27,7 +27,9 @@ export const SignUpForm: FC = () => {
   } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
+    userData,
     signUpUser,
+    isSuccess,
     isValid,
     reset,
     errorText.signUpError

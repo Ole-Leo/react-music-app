@@ -1,10 +1,12 @@
 import { AuthUserData } from '../models/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useActions } from '../store/actions';
 import { useNavigate } from 'react-router-dom';
 
 export const useAuthHook = (
+  userData: AuthUserData,
   authUser: Function,
+  isSuccess: boolean,
   isValid: boolean,
   reset: Function,
   errorText: string
@@ -24,7 +26,6 @@ export const useAuthHook = (
           username: data.email,
           password: data.password,
         }).unwrap();
-        addUser(data.email);
         reset();
         navigate('/tracks');
       }
@@ -34,6 +35,11 @@ export const useAuthHook = (
       setIsBlocked(false);
     }
   };
+
+  useEffect(() => {
+    isSuccess && addUser(userData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, userData]);
 
   const focusHandler = () => {
     setError('');
