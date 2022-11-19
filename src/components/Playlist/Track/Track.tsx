@@ -16,11 +16,11 @@ export const Track: FC<TrackProps> = ({
   name,
   author,
   album,
-  duration_in_seconds: duration,
+  duration_in_seconds: time,
   onClick,
   isActive = false,
 }) => {
-  const memoTrackTime = useMemo(() => trackTime(duration), [duration]);
+  const memoTrackTime = useMemo(() => trackTime(time), [time]);
 
   return (
     <div className={classNames(styles.track, isActive && styles.active)}>

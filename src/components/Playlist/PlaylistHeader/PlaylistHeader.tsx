@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import svgIcon from '../../assets/svg/sprite.svg';
+import svgIcon from '../../../assets/svg/sprite.svg';
 
 import styles from './styles.module.css';
 

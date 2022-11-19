@@ -1,18 +1,3 @@
-.tracks {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  max-height: 681px;
-  overflow-y: scroll;
-  scrollbar-width: none;
-}
-
-.tracks::-webkit-scrollbar {
-  width: 0px;
-  background-color: transparent;
-}
-
 .track {
   display: flex;
   align-items: center;

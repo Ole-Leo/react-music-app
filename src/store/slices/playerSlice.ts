@@ -5,6 +5,7 @@ type AudioState = {
   tracks: TrackData[];
   trackIndex: number;
   isPlay: boolean;
+  // volume:
 };
 
 const initialState: AudioState = {

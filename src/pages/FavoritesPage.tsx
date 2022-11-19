@@ -19,7 +19,7 @@ export const FavoritesPage = () => {
         <div className="main-content">
           <Search query={searchQuery} onChange={changeHandler} />
           <Title text="Мои треки" />
-          <Playlist tracks={filteredTracks} loading={false} />
+          <Playlist tracks={filteredTracks} isLoading={false} />
         </div>
         <Sidebar isOffersShown={false} />
       </main>

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { TrackData } from '../models/types';
+import { useEffect, useState } from 'react';
 
 export const useFilterTracks = (data: TrackData[] | undefined) => {
   const [filteredTracks, setFilteredTracks] = useState<TrackData[]>([]);

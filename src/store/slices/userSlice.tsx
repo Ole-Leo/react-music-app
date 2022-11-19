@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthUserData } from '../../models/types';
 
 const initialState: AuthUserData = {
+  id: NaN,
   email: '',
   username: '',
 };
