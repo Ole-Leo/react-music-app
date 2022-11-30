@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { TrackData } from '../models/types';
+import { useEffect, useState } from 'react';
 import { useAppSelector } from './reduxHook';
 
 export const useSortedTracks = (data: TrackData[]) => {

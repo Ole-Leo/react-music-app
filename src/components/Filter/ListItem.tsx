@@ -1,7 +1,7 @@
+import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
-import { useActions } from '../../store/actions';
+import { useActions } from '../../redux/actions';
 import { useAppSelector } from '../../hooks/reduxHook';
-import classNames from 'classnames';
 
 import styles from './styles.module.css';
 
@@ -24,7 +24,7 @@ export const ListItem: FC<ListItemProps> = ({ name }) => {
 
   return (
     <li
-      className={classNames(styles.listItem, checked && styles.active)}
+      className={cn(styles.listItem, checked && styles.active)}
       onClick={() => toggleClick(name)}
     >
       {name}

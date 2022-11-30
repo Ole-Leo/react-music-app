@@ -1,11 +1,15 @@
 import { FC } from 'react';
 import svgIcon from '../../assets/svg/sprite.svg';
 import { useAppSelector } from '../../hooks/reduxHook';
+import { useCheckAuth } from '../../hooks/useAuthHook';
 
 import styles from './styles.module.css';
 
 export const User: FC = () => {
   const { username } = useAppSelector(state => state.user);
+  const { checkToken } = useCheckAuth();
+
+  checkToken();
 
   return (
     <div className={styles.user}>

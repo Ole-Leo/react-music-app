@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { CollectionData, TrackData } from '../../models/types';
-import { URL } from '../../models/const';
+import { URL } from '../../utils/const';
 
 export const tracksAPI = createApi({
   reducerPath: 'tracksAPI',

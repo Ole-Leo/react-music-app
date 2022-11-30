@@ -3,7 +3,7 @@ import {
   validEmail,
   validPassword,
   validPasswordLength,
-} from '../../models/const';
+} from '../../utils/const';
 import { FC } from 'react';
 import classNames from 'classnames';
 import { AuthUserData } from '../../models/types';
@@ -12,16 +12,15 @@ import { useAuthHook } from '../../hooks/useAuthHook';
 import logoBlack from '../../assets/svg/logo-black.svg';
 import { Button } from '../../components/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useSignUpUserMutation } from '../../store/api/authAPI';
+import { useSignUpUserMutation } from '../../redux/api/authAPI';
 
 import styles from './style.module.css';
 
 export const SignUpForm: FC = () => {
-  const [signUpUser, { data: userData, isSuccess }] = useSignUpUserMutation();
+  const [signUpUser, { data: userData }] = useSignUpUserMutation();
   const {
     register,
     handleSubmit,
-    reset,
     getValues,
     formState: { errors, isValid },
   } = useForm<AuthUserData>({ mode: 'onTouched' });
@@ -29,9 +28,7 @@ export const SignUpForm: FC = () => {
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
     userData,
     signUpUser,
-    isSuccess,
     isValid,
-    reset,
     errorText.signUpError
   );
 

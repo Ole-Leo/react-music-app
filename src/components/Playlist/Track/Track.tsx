@@ -1,6 +1,6 @@
+import cn from 'classnames';
 import { trackTime } from './utils';
-import classNames from 'classnames';
-import { FC, useMemo } from 'react';
+import { FC, useMemo, useState } from 'react';
 import { TrackData } from '../../../models/types';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import trackIcon from '../../../assets/svg/track-icon.svg';
@@ -20,10 +20,15 @@ export const Track: FC<TrackProps> = ({
   onClick,
   isActive = false,
 }) => {
+  const [isLiked, setIsLiked] = useState(false);
   const memoTrackTime = useMemo(() => trackTime(time), [time]);
 
+  const likeClickHandler = () => {
+    setIsLiked(!isLiked);
+  };
+
   return (
-    <div className={classNames(styles.track, isActive && styles.active)}>
+    <div className={cn(styles.track, isActive && styles.active)}>
       <div className={styles.title} onClick={onClick}>
         <img className={styles.titleImg} src={trackIcon} alt="track-icon" />
         <div className={styles.titleText}>{name}</div>
@@ -31,7 +36,10 @@ export const Track: FC<TrackProps> = ({
       <div className={styles.performer}>{author}</div>
       <div className={styles.album}>{album}</div>
       <div className={styles.time}>
-        <svg className={styles.timeLike}>
+        <svg
+          className={cn(styles.timeLike, isLiked && styles.liked)}
+          onClick={likeClickHandler}
+        >
           <use xlinkHref={`${svgIcon}#like`}></use>
         </svg>
         <div className={styles.timeTime}>{memoTrackTime}</div>

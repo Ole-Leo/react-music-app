@@ -1,10 +1,10 @@
-import { toggleHandler } from './utils';
 import { PlayerBtn } from './PlayerBtn';
+import { toggleHandler } from './utils';
 import { PlayerTrack } from './PlayerTrack';
 import { AudioElement } from './AudioElement';
 import { PlayerVolume } from './PlayerVolume';
 import { usePlayerHook } from './usePlayerHook';
-import { useActions } from '../../store/actions';
+import { useActions } from '../../redux/actions';
 import { PlayerControls } from './PlayerControls';
 import { PlayerProgress } from './PlayerProgress';
 import { useAppSelector } from '../../hooks/reduxHook';

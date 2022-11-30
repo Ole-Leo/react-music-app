@@ -2,15 +2,17 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { authAPI } from './api/authAPI';
 import { tracksAPI } from './api/tracksAPI';
-import { userReducer } from './slices/userSlice';
-import { playerReducer } from './slices/playerSlice';
-import { filterReducer } from './slices/filterSlice';
+import { userReducer } from './features/userSlice';
+import { playerReducer } from './features/playerSlice';
+import { filterReducer } from './features/filterSlice';
+import { tokenReducer } from './features/tokenSlice';
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     player: playerReducer,
     filter: filterReducer,
+    token: tokenReducer,
     [tracksAPI.reducerPath]: tracksAPI.reducer,
     [authAPI.reducerPath]: authAPI.reducer,
   },

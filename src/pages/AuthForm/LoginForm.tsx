@@ -3,7 +3,7 @@ import {
   validEmail,
   validPassword,
   validPasswordLength,
-} from '../../models/const';
+} from '../../utils/const';
 import { FC } from 'react';
 import classNames from 'classnames';
 import { AuthUserData } from '../../models/types';
@@ -15,25 +15,22 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import logoBlack from '../../assets/svg/logo-black.svg';
 
 import styles from './style.module.css';
-import { useLoginUserMutation } from '../../store/api/authAPI';
+import { useLoginUserMutation } from '../../redux/api/authAPI';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();
-  const [loginUser, { data: userData, isSuccess }] = useLoginUserMutation();
+  const [loginUser, { data: userData }] = useLoginUserMutation();
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
   } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
     userData,
     loginUser,
-    isSuccess,
     isValid,
-    reset,
     errorText.loginError
   );
 

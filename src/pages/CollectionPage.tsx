@@ -4,7 +4,7 @@ import { Search } from '../components/Search/Search';
 import { Sidebar } from '../components/Sidebar/Sidebar';
 import { Playlist } from '../components/Playlist/Playlist';
 import { useFilterTracks } from '../hooks/useFilteredTracks';
-import { useGetCollectionQuery } from '../store/api/tracksAPI';
+import { useGetCollectionQuery } from '../redux/api/tracksAPI';
 import { Navigation } from '../components/Navigation/Navigation';
 import { AudioPlayer } from '../components/AudioPlayer/AudioPlayer';
 

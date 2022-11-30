@@ -1,16 +1,26 @@
 import { Logo } from '../Logo/Logo';
-import { MenuItem } from './MenuItem';
 import { FC, useState } from 'react';
-import logoWhite from '../../assets/svg/logo-white.svg';
+import { MenuItem } from './MenuItem';
+import { useActions } from '../../redux/actions';
 import svgIcon from '../../assets/svg/sprite.svg';
+import logoWhite from '../../assets/svg/logo-white.svg';
 
 import styles from './styles.module.css';
+import { useCookies } from 'react-cookie';
 
 export const Navigation: FC = () => {
+  const { logout } = useActions();
   const [isShown, setIsShown] = useState(true);
+  const [cookies, setCookie, removeCookie] = useCookies(['access', 'refresh']);
 
   const menuClickHandler = () => {
     setIsShown(prev => !prev);
+  };
+
+  const clickHandler = () => {
+    logout();
+    removeCookie('access');
+    removeCookie('refresh');
   };
 
   return (
@@ -25,7 +35,7 @@ export const Navigation: FC = () => {
         <ul className={styles.menu}>
           <MenuItem href="/tracks" text="Главная" />
           <MenuItem href="/favorites" text="Мои треки" />
-          <MenuItem href="/" text="Выйти" />
+          <MenuItem href="/" text="Выйти" onClick={clickHandler} />
         </ul>
       )}
     </nav>

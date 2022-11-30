@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Track } from './Track/Track';
 import { TrackData } from '../../models/types';
-import { useActions } from '../../store/actions';
+import { useActions } from '../../redux/actions';
 import { useAppSelector } from '../../hooks/reduxHook';
 import { PlaylistHeader } from './PlaylistHeader/PlaylistHeader';
 

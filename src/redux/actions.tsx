@@ -1,13 +1,15 @@
 import { useDispatch } from 'react-redux';
-import { userActions } from './slices/userSlice';
-import { playerActions } from './slices/playerSlice';
-import { filterActions } from './slices/filterSlice';
+import { userActions } from './features/userSlice';
+import { tokenActions } from './features/tokenSlice';
+import { playerActions } from './features/playerSlice';
+import { filterActions } from './features/filterSlice';
 import { bindActionCreators } from '@reduxjs/toolkit';
 
 const actions = {
   ...userActions,
   ...playerActions,
   ...filterActions,
+  ...tokenActions,
 };
 
 export const useActions = () => {

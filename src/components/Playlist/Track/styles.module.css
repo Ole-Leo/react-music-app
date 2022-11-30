@@ -15,7 +15,7 @@
   color: #d9b6ff;
 }
 
-.track.active {
+.active {
   background: #222222;
   color: #ad61ff;
 }
@@ -72,7 +72,11 @@
   stroke: #fff;
 }
 
-.timeLike:active {
+/* .timeLike:active {
+  fill: #ad61ff;
+} */
+
+.liked {
   fill: #ad61ff;
 }
 
