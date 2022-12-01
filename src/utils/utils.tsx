@@ -18,3 +18,15 @@ export const parseJWT = (token: string) => {
 
   return JSON.parse(base64);
 };
+
+export const getJWTExpTime = (token: string) => {
+  return new Date(+parseJWT(token).exp * 1000);
+};
+
+export const checkJWTExpTime = (token: string) => {
+  return new Date() < getJWTExpTime(token);
+};
+
+export const checkTokensInCookies = () => {
+  return Cookies && Cookies.get('access') && Cookies.get('refresh');
+};

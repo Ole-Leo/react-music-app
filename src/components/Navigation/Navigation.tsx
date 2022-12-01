@@ -11,12 +11,12 @@ export const Navigation: FC = () => {
   const { logout } = useActions();
   const [isShown, setIsShown] = useState(true);
 
-  const menuClickHandler = () => {
-    setIsShown(prev => !prev);
-  };
-
   const clickHandler = () => {
     logout();
+  };
+
+  const menuClickHandler = () => {
+    setIsShown(prev => !prev);
   };
 
   return (
