@@ -6,12 +6,10 @@ import svgIcon from '../../assets/svg/sprite.svg';
 import logoWhite from '../../assets/svg/logo-white.svg';
 
 import styles from './styles.module.css';
-import { useCookies } from 'react-cookie';
 
 export const Navigation: FC = () => {
   const { logout } = useActions();
   const [isShown, setIsShown] = useState(true);
-  const [cookies, setCookie, removeCookie] = useCookies(['access', 'refresh']);
 
   const menuClickHandler = () => {
     setIsShown(prev => !prev);
@@ -19,13 +17,11 @@ export const Navigation: FC = () => {
 
   const clickHandler = () => {
     logout();
-    removeCookie('access');
-    removeCookie('refresh');
   };
 
   return (
     <nav className={styles.nav}>
-      <Logo href="/" img={logoWhite} />
+      <Logo href="/" img={logoWhite} onClick={clickHandler} />
       <div className={styles.burger} onClick={menuClickHandler}>
         <svg className={styles.burgerSvg}>
           <use xlinkHref={`${svgIcon}#burger`}></use>

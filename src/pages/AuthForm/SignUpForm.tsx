@@ -12,7 +12,7 @@ import { useAuthHook } from '../../hooks/useAuthHook';
 import logoBlack from '../../assets/svg/logo-black.svg';
 import { Button } from '../../components/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useSignUpUserMutation } from '../../redux/api/authAPI';
+import { useSignUpUserMutation } from '../../redux/api/userAPI';
 
 import styles from './style.module.css';
 

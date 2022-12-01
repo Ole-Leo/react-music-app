@@ -24,3 +24,5 @@ const tokenSlice = createSlice({
 
 export const tokenActions = tokenSlice.actions;
 export const tokenReducer = tokenSlice.reducer;
+
+export const { setToken } = tokenSlice.actions;

@@ -1,13 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { authAPI } from './authAPI';
 import { CollectionData, TrackData } from '../../models/types';
-import { URL } from '../../utils/const';
 
-export const tracksAPI = createApi({
-  reducerPath: 'tracksAPI',
-  tagTypes: ['Tracks'],
-  baseQuery: fetchBaseQuery({
-    baseUrl: URL,
-  }),
+export const tracksAPI = authAPI.injectEndpoints({
   endpoints: build => ({
     getTracks: build.query<TrackData[], void>({
       query: () => `catalog/track/all/`,

@@ -15,7 +15,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import logoBlack from '../../assets/svg/logo-black.svg';
 
 import styles from './style.module.css';
-import { useLoginUserMutation } from '../../redux/api/authAPI';
+import { useLoginUserMutation } from '../../redux/api/userAPI';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();

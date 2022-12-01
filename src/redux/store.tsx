@@ -13,7 +13,6 @@ export const store = configureStore({
     player: playerReducer,
     filter: filterReducer,
     token: tokenReducer,
-    [tracksAPI.reducerPath]: tracksAPI.reducer,
     [authAPI.reducerPath]: authAPI.reducer,
   },
   middleware: getDefaultMiddleware =>

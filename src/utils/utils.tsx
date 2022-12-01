@@ -1,3 +1,10 @@
+import Cookies from 'js-cookie';
+
+export const removeTokensFromCookies = () => {
+  Cookies.remove('access');
+  Cookies.remove('refresh');
+};
+
 export const parseJWT = (token: string) => {
   const base64Url = token.split('.')[1];
   const base64 = decodeURIComponent(
