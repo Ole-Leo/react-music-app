@@ -22,13 +22,12 @@ export const SignUpForm: FC = () => {
     register,
     handleSubmit,
     getValues,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
     userData,
     signUpUser,
-    isValid,
     errorText.signUpError
   );
 

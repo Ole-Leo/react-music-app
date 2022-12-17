@@ -28,5 +28,6 @@ export const checkJWTExpTime = (token: string) => {
 };
 
 export const checkTokensInCookies = () => {
-  return Cookies && Cookies.get('access') && Cookies.get('refresh');
+  if (Cookies && Cookies.get('access') && Cookies.get('refresh')) return true;
+  return false;
 };

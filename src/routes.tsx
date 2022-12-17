@@ -4,7 +4,6 @@ import { FavoritesPage } from './pages/FavoritesPage';
 import { CollectionPage } from './pages/CollectionPage';
 import { LoginForm } from './pages/AuthForm/LoginForm';
 import { SignUpForm } from './pages/AuthForm/SignUpForm';
-
 import { Navigate, Outlet } from 'react-router-dom';
 import { checkTokensInCookies } from './utils/utils';
 

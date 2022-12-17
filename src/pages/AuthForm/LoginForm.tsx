@@ -13,9 +13,9 @@ import { useAuthHook } from '../../hooks/useAuthHook';
 import { Button } from '../../components/Button/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import logoBlack from '../../assets/svg/logo-black.svg';
+import { useLoginUserMutation } from '../../redux/api/userAPI';
 
 import styles from './style.module.css';
-import { useLoginUserMutation } from '../../redux/api/userAPI';
 
 export const LoginForm: FC = () => {
   const navigate = useNavigate();
@@ -24,18 +24,18 @@ export const LoginForm: FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<AuthUserData>({ mode: 'onTouched' });
 
   const { error, isBlocked, authHandler, focusHandler } = useAuthHook(
     userData,
     loginUser,
-    isValid,
     errorText.loginError
   );
 
   const onSubmit: SubmitHandler<AuthUserData> = async data => {
     console.log(data);
+
     await authHandler(data);
   };
 

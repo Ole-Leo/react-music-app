@@ -4,12 +4,11 @@ import { useAppSelector } from './reduxHook';
 import { useActions } from '../redux/actions';
 import { useNavigate } from 'react-router-dom';
 import { AuthUserData } from '../models/types';
-import { useCurrentUserQuery, useGetTokenMutation } from '../redux/api/userAPI';
+import { useGetTokenMutation } from '../redux/api/userAPI';
 
 export const useAuthHook = (
   userData: AuthUserData,
   authUser: Function,
-  isValid: boolean,
   errorText: string
 ) => {
   const navigate = useNavigate();
@@ -22,13 +21,11 @@ export const useAuthHook = (
     setIsBlocked(true);
     setError('');
     try {
-      if (isValid) {
-        await authUser({
-          ...data,
-          username: data.email,
-        }).unwrap();
-        await getToken({ ...data }).unwrap();
-      }
+      await authUser({
+        ...data,
+        username: data.email,
+      }).unwrap();
+      await getToken({ ...data }).unwrap();
     } catch (error: any) {
       console.log(error);
       setError(error.data.password ? 'Пароль слишком лёгкий' : errorText);
@@ -59,8 +56,7 @@ export const useAuthHook = (
 };
 
 export const useCheckAuth = () => {
-  const { setToken, setUser } = useActions();
-  const { data: user } = useCurrentUserQuery();
+  const { setToken } = useActions();
   const { access } = useAppSelector(state => state.token);
 
   const checkToken = () => {
@@ -70,11 +66,6 @@ export const useCheckAuth = () => {
       refresh: Cookies.get('refresh')!,
     });
   };
-
-  useEffect(() => {
-    if (user) setUser(user);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
 
   return { checkToken };
 };
