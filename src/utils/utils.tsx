@@ -27,7 +27,11 @@ export const checkJWTExpTime = (token: string) => {
   return new Date() < getJWTExpTime(token);
 };
 
+export const getUserIdFromJWT = (token: string) => {
+  return parseJWT(token).user_id;
+};
+
 export const checkTokensInCookies = () => {
-  if (Cookies && Cookies.get('access') && Cookies.get('refresh')) return true;
+  if (Cookies.get('access') && Cookies.get('refresh')) return true;
   return false;
 };

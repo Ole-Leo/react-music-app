@@ -32,7 +32,7 @@ export const Playlist: FC<TracksProps> = ({ tracks, isLoading }) => {
           tracks.map((track, i) => (
             <Track
               key={track.id}
-              {...track}
+              track={track}
               onClick={() => clickHandler(i)}
               isActive={track === playlist[trackIndex]}
             />

@@ -1,6 +1,6 @@
 import { Logo } from '../Logo/Logo';
 import { FC, useState } from 'react';
-import { MenuItem } from './MenuItem';
+import { Link } from 'react-router-dom';
 import { useActions } from '../../redux/actions';
 import svgIcon from '../../assets/svg/sprite.svg';
 import logoWhite from '../../assets/svg/logo-white.svg';
@@ -11,17 +11,17 @@ export const Navigation: FC = () => {
   const { logout } = useActions();
   const [isShown, setIsShown] = useState(true);
 
-  const clickHandler = () => {
-    logout();
-  };
-
   const menuClickHandler = () => {
     setIsShown(prev => !prev);
   };
 
+  const logoutHandler = () => {
+    logout();
+  };
+
   return (
     <nav className={styles.nav}>
-      <Logo href="/" img={logoWhite} onClick={clickHandler} />
+      <Logo href="/tracks" img={logoWhite} />
       <div className={styles.burger} onClick={menuClickHandler}>
         <svg className={styles.burgerSvg}>
           <use xlinkHref={`${svgIcon}#burger`}></use>
@@ -29,9 +29,25 @@ export const Navigation: FC = () => {
       </div>
       {isShown && (
         <ul className={styles.menu}>
-          <MenuItem href="/tracks" text="Главная" />
-          <MenuItem href="/favorites" text="Мои треки" />
-          <MenuItem href="/" text="Выйти" onClick={clickHandler} />
+          <li className={styles.menuItem}>
+            <Link to="/tracks" className={styles.menuLink}>
+              Главная
+            </Link>
+          </li>
+          <li className={styles.menuItem}>
+            <Link to="/favorites" className={styles.menuLink}>
+              Мои треки
+            </Link>
+          </li>
+          <li className={styles.menuItem}>
+            <Link
+              to="/login"
+              className={styles.menuLink}
+              onClick={logoutHandler}
+            >
+              Выйти
+            </Link>
+          </li>
         </ul>
       )}
     </nav>

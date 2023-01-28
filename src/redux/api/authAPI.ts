@@ -46,6 +46,7 @@ const baseQueryWithReAuth = async (
       Cookies.set('access', response.access);
       result = await baseQuery(prevQueryArgs, api, extraOptions);
     } else {
+      window.location.href = '/login';
       api.dispatch(logout());
     }
   }
