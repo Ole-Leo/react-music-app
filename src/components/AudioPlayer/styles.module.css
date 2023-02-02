@@ -89,11 +89,6 @@
   stroke: #acacac;
 }
 
-.svg-like:active {
-  fill: #ad61ff;
-  stroke: #fff;
-}
-
 .svg-volume {
   width: 13px;
   height: 18px;

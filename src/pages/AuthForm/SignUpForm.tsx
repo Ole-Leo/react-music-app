@@ -32,7 +32,6 @@ export const SignUpForm: FC = () => {
   );
 
   const onSubmit: SubmitHandler<AuthUserData> = async data => {
-    console.log(data);
     await authHandler(data);
   };
 

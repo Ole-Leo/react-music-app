@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 import styles from './styles.module.css';
 
@@ -14,18 +14,17 @@ export const PlayerBtn: FC<PlayerBtnProps> = ({
   src,
   name,
   onClick,
-  isClicked = false,
+  isClicked,
 }) => {
   return (
-    <button
-      className={classNames(
-        styles.button,
-        styles[`${name}`],
-        isClicked && styles.active
-      )}
-      onClick={onClick}
-    >
-      <svg className={classNames(styles.button, styles[`svg-${name}`])}>
+    <button className={cn(styles.button, styles[`${name}`])} onClick={onClick}>
+      <svg
+        className={cn(
+          styles.button,
+          styles[`svg-${name}`],
+          isClicked && styles.active
+        )}
+      >
         <use xlinkHref={src}></use>
       </svg>
     </button>

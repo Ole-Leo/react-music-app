@@ -1,4 +1,3 @@
-import { PlayerBtn } from './PlayerBtn';
 import { toggleHandler } from './utils';
 import { PlayerTrack } from './PlayerTrack';
 import { AudioElement } from './AudioElement';
@@ -9,18 +8,15 @@ import { PlayerControls } from './PlayerControls';
 import { PlayerProgress } from './PlayerProgress';
 import { useAppSelector } from '../../hooks/reduxHook';
 import { FC, useEffect, useRef, useState } from 'react';
-import svgIcon from '../../assets/svg/sprite.svg';
 
 import styles from './styles.module.css';
 
 export const AudioPlayer: FC = () => {
   const [mute, setMute] = useState(false);
   const [repeat, setRepeat] = useState(false);
-
   const { setPlay } = useActions();
   const { isPlay } = useAppSelector(state => state.player);
   const { currentTrack, nextTrackHandler } = usePlayerHook();
-
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -56,7 +52,6 @@ export const AudioPlayer: FC = () => {
               title={currentTrack.name}
               author={currentTrack.author}
             />
-            <PlayerBtn src={`${svgIcon}#like`} name="like" />
             <PlayerVolume
               ref={audioRef}
               onClick={() => toggleHandler(setMute, mute)}

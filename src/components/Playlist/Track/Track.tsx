@@ -4,9 +4,9 @@ import { FC, useMemo, useState } from 'react';
 import { TrackData } from '../../../models/types';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import trackIcon from '../../../assets/svg/track-icon.svg';
+import { useFavoriteTrack } from '../../../hooks/useFavoriteTrack';
 
 import styles from './styles.module.css';
-import { useFavoriteTrack } from '../../../hooks/useFavoriteTrack';
 
 export type TrackProps = {
   track: TrackData;
