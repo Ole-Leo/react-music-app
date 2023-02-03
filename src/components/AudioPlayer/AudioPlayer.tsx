@@ -40,7 +40,7 @@ export const AudioPlayer: FC = () => {
             repeat={repeat}
             onTrackEnd={nextTrackHandler}
           />
-          <PlayerProgress />
+          <PlayerProgress ref={audioRef} />
           <div className={styles.content}>
             <PlayerControls
               play={isPlay}

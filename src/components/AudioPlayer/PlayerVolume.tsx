@@ -10,7 +10,7 @@ type PlayerVolumeProps = {
 
 export const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
   ({ onClick }, ref) => {
-    const [volume, setVolume] = useState(50);
+    const [volume, setVolume] = useState(35);
 
     const changeVolumeHandler = (
       event: React.ChangeEvent<HTMLInputElement>

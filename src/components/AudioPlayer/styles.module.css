@@ -11,7 +11,21 @@
   font-size: 13px;
 }
 
-.progressInput {
+.progress {
+  height: 5px;
+  width: 99%;
+  background-color: #2e2e2e;
+
+  cursor: pointer;
+}
+
+.progressBar {
+  height: 5px;
+  width: 0%;
+  background-color: #ad61ff;
+}
+
+/* .progressInput {
   appearance: none;
   height: 5px;
   width: 99%;
@@ -31,7 +45,7 @@
   border: none;
   border-radius: 50%;
   background: #696969;
-}
+} */
 
 .content {
   display: flex;
