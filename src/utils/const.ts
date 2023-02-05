@@ -10,5 +10,3 @@ const errorText = {
 };
 
 export { URL, validEmail, validPassword, validPasswordLength, errorText };
-//`https://painassasin.online/`
-//'http://51.250.72.80:8090/'
