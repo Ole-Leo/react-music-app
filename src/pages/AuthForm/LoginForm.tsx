@@ -46,7 +46,7 @@ export const LoginForm = () => {
     <div className={styles.formWrapper}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.logo}>
-          <Logo img={logoBlack} href="/" />
+          <Logo img={logoBlack} href="/login" />
         </div>
         <div className={styles.inputs}>
           <input
