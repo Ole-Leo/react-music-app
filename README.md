@@ -1,1 +1,1 @@
-# skyPro-coursework-react
+# react-music-app
