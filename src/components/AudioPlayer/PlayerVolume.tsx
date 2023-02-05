@@ -6,10 +6,11 @@ import styles from './styles.module.css';
 
 type PlayerVolumeProps = {
   onClick?: VoidFunction;
+  isMute?: boolean;
 };
 
 export const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
-  ({ onClick }, ref) => {
+  ({ onClick, isMute }, ref) => {
     const [volume, setVolume] = useState(35);
 
     const changeVolumeHandler = (
@@ -27,7 +28,11 @@ export const PlayerVolume = forwardRef<HTMLAudioElement, PlayerVolumeProps>(
 
     return (
       <div className={styles.volume}>
-        <PlayerBtn src={`${svgIcon}#volume`} name="volume" onClick={onClick} />
+        <PlayerBtn
+          src={isMute ? `${svgIcon}#mute` : `${svgIcon}#volume`}
+          name="volume"
+          onClick={onClick}
+        />
         <input
           type="range"
           className={styles.volumeInput}

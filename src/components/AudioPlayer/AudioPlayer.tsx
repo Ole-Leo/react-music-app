@@ -55,6 +55,7 @@ export const AudioPlayer: FC = () => {
             <PlayerVolume
               ref={audioRef}
               onClick={() => toggleHandler(setMute, mute)}
+              isMute={mute}
             />
           </div>
         </div>
