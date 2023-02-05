@@ -1,6 +1,6 @@
 # Music App / Приложение для прослушивания музыки
 
-Main_left_menu.png
+![Main_left_menu](https://user-images.githubusercontent.com/95646471/216800287-614fd07b-fee3-44da-8e3a-b2bdadb61a88.png)
 
 ## Описание и функционал приложения
 
