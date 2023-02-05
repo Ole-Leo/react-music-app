@@ -16,3 +16,12 @@
   width: 0px;
   background-color: transparent;
 }
+
+.warning {
+  font-size: 20px;
+}
+
+.skeleton {
+  height: 50px;
+  margin-bottom: 12px;
+}

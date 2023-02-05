@@ -4,7 +4,6 @@ import {
   validPassword,
   validPasswordLength,
 } from '../../utils/const';
-import { FC } from 'react';
 import classNames from 'classnames';
 import { AuthUserData } from '../../models/types';
 import { Logo } from '../../components/Logo/Logo';
@@ -16,7 +15,7 @@ import { useSignUpUserMutation } from '../../redux/api/userAPI';
 
 import styles from './style.module.css';
 
-export const SignUpForm: FC = () => {
+export const SignUpForm = () => {
   const [signUpUser, { data: userData }] = useSignUpUserMutation();
   const {
     register,

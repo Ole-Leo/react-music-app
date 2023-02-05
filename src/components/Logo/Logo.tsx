@@ -1,13 +1,12 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-type LogoProps = {
+type Props = {
   img: string;
   href: string;
   onClick?: React.MouseEventHandler<Element>;
 };
 
-export const Logo: FC<LogoProps> = ({ img, href, onClick }) => {
+export const Logo = ({ img, href, onClick }: Props) => {
   return (
     <Link to={href} onClick={onClick}>
       <img src={img} alt="logo" />

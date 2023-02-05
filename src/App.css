@@ -14,8 +14,16 @@ body {
 
 .content {
   display: grid;
-  grid-template-columns: 240px auto 430px;
+  grid-template-columns: 240px auto;
 
   padding-top: 30px;
   min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+}
+
+.playlist {
+  flex-grow: 1;
 }

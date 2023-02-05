@@ -21,7 +21,7 @@ export const Navigation: FC = () => {
 
   return (
     <nav className={styles.nav}>
-      <Logo href="/tracks" img={logoWhite} />
+      <Logo href="/" img={logoWhite} />
       <div className={styles.burger} onClick={menuClickHandler}>
         <svg className={styles.burgerSvg}>
           <use xlinkHref={`${svgIcon}#burger`}></use>
@@ -30,7 +30,7 @@ export const Navigation: FC = () => {
       {isShown && (
         <ul className={styles.menu}>
           <li className={styles.menuItem}>
-            <Link to="/tracks" className={styles.menuLink}>
+            <Link to="/" className={styles.menuLink}>
               Главная
             </Link>
           </li>

@@ -1,22 +1,21 @@
-import { FC } from 'react';
 import { PlayerBtn } from './PlayerBtn';
 import { toggleHandler } from './utils';
 import { usePlayerHook } from './usePlayerHook';
 import svgIcon from '../../assets/svg/sprite.svg';
 
-type PlayerControlsProps = {
+type Props = {
   play: boolean;
   onPlayPauseClick?: VoidFunction;
   onRepeat?: VoidFunction;
   isRepeatClicked?: boolean;
 };
 
-export const PlayerControls: FC<PlayerControlsProps> = ({
+export const PlayerControls = ({
   play,
   onPlayPauseClick,
   onRepeat,
   isRepeatClicked,
-}) => {
+}: Props) => {
   const { shuffled, setShuffled, nextTrackHandler, prevTrackHandler } =
     usePlayerHook();
 

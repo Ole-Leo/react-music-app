@@ -21,11 +21,12 @@ export const AppRoutes = () => {
       <Route path="/register" element={<SignUpForm />} />
       <Route element={<RequireAuth />}>
         <Route path="/" element={<Layout />}>
-          <Route path="tracks" element={<MainPage />} />
+          <Route index element={<MainPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="collection/:id" element={<CollectionPage />} />
         </Route>
       </Route>
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

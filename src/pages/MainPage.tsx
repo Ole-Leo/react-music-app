@@ -5,6 +5,7 @@ import { Playlist } from '../components/Playlist/Playlist';
 import { useSortedTracks } from '../hooks/useSortedTracks';
 import { useGetTracksQuery } from '../redux/api/tracksAPI';
 import { useFilterTracks } from '../hooks/useFilteredTracks';
+import { Sidebar } from '../components/Sidebar/Sidebar';
 
 export const MainPage = () => {
   const { data, isLoading } = useGetTracksQuery();
@@ -14,10 +15,13 @@ export const MainPage = () => {
 
   return (
     <>
-      <Search query={searchQuery} onChange={changeHandler} />
-      <Title text="Треки" />
-      <Filter year={year} author={author} genre={genre} />
-      <Playlist tracks={sortedData} isLoading={isLoading} />
+      <div className="playlist">
+        <Search query={searchQuery} onChange={changeHandler} />
+        <Title text="Треки" />
+        <Filter year={year} author={author} genre={genre} />
+        <Playlist tracks={sortedData} isLoading={isLoading} />
+      </div>
+      <Sidebar isLoading={isLoading} />
     </>
   );
 };

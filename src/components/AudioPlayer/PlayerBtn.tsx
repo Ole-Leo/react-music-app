@@ -1,21 +1,15 @@
-import { FC } from 'react';
 import cn from 'classnames';
 
 import styles from './styles.module.css';
 
-type PlayerBtnProps = {
+type Props = {
   src: string;
   name?: string;
   onClick?: VoidFunction;
   isClicked?: boolean;
 };
 
-export const PlayerBtn: FC<PlayerBtnProps> = ({
-  src,
-  name,
-  onClick,
-  isClicked,
-}) => {
+export const PlayerBtn = ({ src, name, onClick, isClicked }: Props) => {
   return (
     <button className={cn(styles.button, styles[`${name}`])} onClick={onClick}>
       <svg

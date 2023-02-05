@@ -1,9 +1,8 @@
-import { FC } from 'react';
 import svgIcon from '../../../assets/svg/sprite.svg';
 
 import styles from './styles.module.css';
 
-export const PlaylistHeader: FC = () => {
+export const PlaylistHeader = () => {
   return (
     <div className={styles.header}>
       <div className={styles.track}>ТРЕК</div>

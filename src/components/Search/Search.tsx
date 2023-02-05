@@ -1,14 +1,13 @@
-import { FC } from 'react';
 import svgIcon from '../../assets/svg/sprite.svg';
 
 import styles from './styles.module.css';
 
-type SearchProps = {
+type Props = {
   query: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Search: FC<SearchProps> = ({ query, onChange }) => {
+export const Search = ({ query, onChange }: Props) => {
   return (
     <div className={styles.search}>
       <svg className={styles.icon}>

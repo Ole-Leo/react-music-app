@@ -4,7 +4,6 @@ import {
   validPassword,
   validPasswordLength,
 } from '../../utils/const';
-import { FC } from 'react';
 import classNames from 'classnames';
 import { AuthUserData } from '../../models/types';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +16,7 @@ import { useLoginUserMutation } from '../../redux/api/userAPI';
 
 import styles from './style.module.css';
 
-export const LoginForm: FC = () => {
+export const LoginForm = () => {
   const navigate = useNavigate();
   const [loginUser, { data: userData }] = useLoginUserMutation();
 

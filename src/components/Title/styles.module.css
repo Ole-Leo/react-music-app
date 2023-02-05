@@ -8,3 +8,9 @@
   line-height: 72px;
   letter-spacing: -0.8px;
 }
+
+.skeleton {
+  height: 72px;
+
+  margin-top: 51px;
+}

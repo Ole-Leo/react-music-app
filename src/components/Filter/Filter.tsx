@@ -1,15 +1,14 @@
-import { FC } from 'react';
 import { FilteredList } from './FilteredList';
 
 import styles from './styles.module.css';
 
-type FilterProps = {
+type Props = {
   year: string[];
   author: string[];
   genre: string[];
 };
 
-export const Filter: FC<FilterProps> = ({ year, author, genre }) => {
+export const Filter = ({ year, author, genre }: Props) => {
   return (
     <div className={styles.filter}>
       <span className={styles.text}>Искать по:</span>

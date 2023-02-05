@@ -1,6 +1,8 @@
 .sidebar {
   box-sizing: border-box;
   padding: 0 90px;
+
+  min-width: 375px;
 }
 
 .offers {
@@ -9,7 +11,7 @@
   align-items: center;
   gap: 30px;
 
-  padding-top: 260px;
+  padding-top: 275px;
 }
 
 .offer {
@@ -34,9 +36,16 @@
 
 .offerImg {
   width: 250px;
+  height: 150px;
 }
 
 .offerText {
   position: absolute;
   text-shadow: 1px 1px 10px #313131;
+}
+
+.skeleton {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 30px;
 }

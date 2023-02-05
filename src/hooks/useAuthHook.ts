@@ -36,7 +36,7 @@ export const useAuthHook = (
   useEffect(() => {
     if (isSuccess) {
       setCredentials();
-      navigate('/tracks');
+      navigate('/');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);

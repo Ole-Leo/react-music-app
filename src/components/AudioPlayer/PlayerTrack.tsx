@@ -1,14 +1,13 @@
-import { FC } from 'react';
 import trackIcon from '../../assets/svg/track-icon.svg';
 
 import styles from './styles.module.css';
 
-type PlayerTrackProps = {
+type Props = {
   title: string;
   author: string;
 };
 
-export const PlayerTrack: FC<PlayerTrackProps> = ({ title, author }) => {
+export const PlayerTrack = ({ title, author }: Props) => {
   return (
     <div className={styles.track}>
       <img className={styles.trackImg} src={trackIcon} alt="track-icon" />
