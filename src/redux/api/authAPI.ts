@@ -39,7 +39,7 @@ const baseQueryWithReAuth = async (
     };
 
     const refreshResult = await baseQuery(args, api, extraOptions);
-    const response = refreshResult.data as any;
+    const response = refreshResult.data as TokenState;
 
     if (response) {
       api.dispatch(setToken({ ...response }));

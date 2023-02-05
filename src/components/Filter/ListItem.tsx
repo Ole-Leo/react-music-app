@@ -1,15 +1,15 @@
 import cn from 'classnames';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useActions } from '../../redux/actions';
 import { useAppSelector } from '../../hooks/reduxHook';
 
 import styles from './styles.module.css';
 
-type ListItemProps = {
+type Props = {
   name: string;
 };
 
-export const ListItem: FC<ListItemProps> = ({ name }) => {
+export const ListItem = ({ name }: Props) => {
   const [checked, setChecked] = useState(false);
   const { addFilter, cleanFilter } = useActions();
   const { filter: filteredList } = useAppSelector(state => state.filter);

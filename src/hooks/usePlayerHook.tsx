@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useAppSelector } from '../../hooks/reduxHook';
-import { useActions } from '../../redux/actions';
-import { getRandomIndex } from './utils';
+import { useAppSelector } from './reduxHook';
+import { useActions } from '../redux/actions';
+import { getRandomIndex } from '../components/AudioPlayer/utils';
 
 export const usePlayerHook = () => {
   const [shuffled, setShuffled] = useState(false);

@@ -1,13 +1,13 @@
 import { forwardRef } from 'react';
 
-type AudioElementProps = {
+type Props = {
   src: string;
   mute?: boolean;
   repeat?: boolean;
   onTrackEnd?: VoidFunction;
 };
 
-export const AudioElement = forwardRef<HTMLAudioElement, AudioElementProps>(
+export const AudioElement = forwardRef<HTMLAudioElement, Props>(
   ({ src, mute, repeat, onTrackEnd }, ref) => {
     return (
       <audio

@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import cn from 'classnames';
 
 import styles from './style.module.css';
 
-export type ButtonProps = {
+type Props = {
   type?: 'action' | 'outlined' | 'secondary';
   size?: 's' | 'm' | 'l';
   btnStatus?: 'normal' | 'disabled';
@@ -12,13 +12,13 @@ export type ButtonProps = {
   onClick?: VoidFunction;
 };
 
-export const Button: FC<ButtonProps> = ({
+export const Button = ({
   type = 'action',
   btnStatus = 'normal',
   children,
   btnType,
   onClick,
-}) => {
+}: Props) => {
   const buttonClassName = cn(
     styles.button,
     styles[`${type}`],

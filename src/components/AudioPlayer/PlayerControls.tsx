@@ -1,6 +1,6 @@
 import { PlayerBtn } from './PlayerBtn';
 import { toggleHandler } from './utils';
-import { usePlayerHook } from './usePlayerHook';
+import { usePlayerHook } from '../../hooks/usePlayerHook';
 import svgIcon from '../../assets/svg/sprite.svg';
 
 type Props = {

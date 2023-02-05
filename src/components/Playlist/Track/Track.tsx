@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { trackTime } from './utils';
-import { FC, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { TrackData } from '../../../models/types';
 import svgIcon from '../../../assets/svg/sprite.svg';
 import trackIcon from '../../../assets/svg/track-icon.svg';
@@ -8,13 +8,13 @@ import { useFavoriteTrack } from '../../../hooks/useFavoriteTrack';
 
 import styles from './styles.module.css';
 
-export type TrackProps = {
+type Props = {
   track: TrackData;
   onClick?: VoidFunction;
   isActive?: boolean;
 };
 
-export const Track: FC<TrackProps> = ({ track, onClick, isActive = false }) => {
+export const Track = ({ track, onClick, isActive = false }: Props) => {
   const { favorite, toggleFavoriteTrack } = useFavoriteTrack(track);
   const [isLiked, setIsLiked] = useState(favorite);
   const memoTrackTime = useMemo(
