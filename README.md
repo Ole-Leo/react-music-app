@@ -4,8 +4,7 @@
 
 ## Описание и функционал приложения
 
-Приложение представляет собой реализацию аналога сервисов Spotify / Яндекс.Музыка.
-[Макет и описание проекта c пояснениями](https://www.figma.com/file/BlrwyWBCeuqr2BRsa9dLVF/WEB_DEV-Project?node-id=2966%3A289&t=5MN8vRGhPlrU7nVI-0).
+Приложение представляет собой реализацию аналога сервисов Spotify / Яндекс.Музыка. [Макет и описание проекта c пояснениями](https://www.figma.com/file/BlrwyWBCeuqr2BRsa9dLVF/WEB_DEV-Project?node-id=2966%3A289&t=5MN8vRGhPlrU7nVI-0).
 
 Ссылка на запросы к API(http://158.160.38.162:8090/swagger/)
 
