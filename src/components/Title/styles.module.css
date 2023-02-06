@@ -1,0 +1,16 @@
+.title {
+  align-self: start;
+
+  margin: 0;
+  margin-top: 51px;
+
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.8px;
+}
+
+.skeleton {
+  height: 72px;
+
+  margin-top: 51px;
+}

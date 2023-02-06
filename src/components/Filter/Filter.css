@@ -1,0 +1,89 @@
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 39px;
+  margin: 45px 0 51px;
+
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.filter__text {
+  margin-right: 5px;
+}
+
+.filter__filteredList {
+  position: relative;
+}
+
+.filter__btn {
+  padding: 6px 20px 7px;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+
+  background: transparent;
+  color: inherit;
+  border: 1px solid;
+  border-radius: 60px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.filter__btn:hover {
+  color: #d9b6ff;
+  border: 1px solid #d9b6ff;
+}
+
+.filter__btn:active {
+  color: #ad61ff;
+  border: 1px solid #ad61ff;
+}
+
+.filter__list-container {
+  position: absolute;
+  top: 55px;
+  left: 0;
+
+  width: 424px;
+  padding: 34px;
+
+  font-size: 20px;
+  line-height: 24px;
+
+  background: #313131;
+  border-radius: 12px;
+}
+
+.filter__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  overflow-y: scroll;
+
+  max-height: 80px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.filter__list::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.filter__listItem {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.1s ease-in-out;
+}
+
+.filter__listItem_active {
+  color: #b672ff;
+  border-bottom: 2px solid currentColor;
+}

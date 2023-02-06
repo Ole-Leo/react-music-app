@@ -1,0 +1,51 @@
+.sidebar {
+  box-sizing: border-box;
+  padding: 0 90px;
+
+  min-width: 375px;
+}
+
+.offers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  padding-top: 275px;
+}
+
+.offer {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.1px;
+  text-align: center;
+
+  color: inherit;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.offer:hover {
+  opacity: 0.85;
+}
+
+.offerImg {
+  width: 250px;
+  height: 150px;
+}
+
+.offerText {
+  position: absolute;
+  text-shadow: 1px 1px 10px #313131;
+}
+
+.skeleton {
+  width: 250px;
+  height: 150px;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,86 @@
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 16px;
+  line-height: 24px;
+
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.track:hover {
+  background: #222222;
+  color: #d9b6ff;
+}
+
+.active {
+  background: #222222;
+  color: #ad61ff;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 42%;
+}
+
+.titleImg {
+  width: 51px;
+  height: 51px;
+  margin-right: 17px;
+}
+
+.performer {
+  width: 29%;
+}
+
+.album {
+  width: 22%;
+
+  color: #696969;
+}
+
+.time {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 17px;
+
+  color: #696969;
+}
+
+.timeTime {
+  width: 35px;
+  padding-right: 5px;
+  text-align: end;
+}
+
+.timeLike {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.timeLike:hover {
+  stroke: #fff;
+}
+
+.liked {
+  fill: #ad61ff;
+}
+
+.track.active > .album,
+.track.active > .time {
+  color: #d9b6ff;
+}
+
+.track.active > .time > .timeLike {
+  stroke: #d9b6ff;
+}

@@ -1,0 +1,27 @@
+.playlist {
+  margin-top: 36px;
+}
+
+.tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  max-height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.tracks::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.warning {
+  font-size: 20px;
+}
+
+.skeleton {
+  height: 50px;
+  margin-bottom: 12px;
+}

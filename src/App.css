@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #181818;
+  color: #fff;
+}
+
+.App {
+  position: relative;
+
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 240px auto;
+
+  padding-top: 30px;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+}
+
+.playlist {
+  flex-grow: 1;
+}

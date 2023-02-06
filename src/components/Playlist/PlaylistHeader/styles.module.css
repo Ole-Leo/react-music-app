@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 2px;
+
+  color: #696969;
+}
+
+.track {
+  width: 42%;
+}
+
+.performer {
+  width: 29%;
+}
+
+.album {
+  width: 22%;
+}
+
+.time {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.timeSvg {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+
+  fill: transparent;
+  stroke: #696969;
+}

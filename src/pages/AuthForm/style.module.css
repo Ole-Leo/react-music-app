@@ -1,0 +1,85 @@
+.formWrapper {
+  display: flex;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+.form {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 366px;
+  height: 440px;
+  margin: 0 auto;
+  padding: 44px;
+
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.logo {
+  margin: 0;
+  margin: 0 auto;
+  margin-bottom: 38px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input {
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.05px;
+
+  color: #181818;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #d0cece;
+}
+
+.input::placeholder {
+  color: #d0cece;
+}
+
+.input:focus {
+  border-bottom: 1px solid #580ea2;
+}
+
+.inputPassword {
+  margin-top: 20px;
+}
+
+.error {
+  height: 19px;
+  margin: 0;
+  padding-left: 2px;
+
+  font-size: 14px;
+
+  color: #ff6b6b;
+}
+
+.error span::before {
+  display: inline;
+  content: '⚠ ';
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.back {
+  margin-bottom: 9px;
+  padding: 0;
+
+  text-align: center;
+}

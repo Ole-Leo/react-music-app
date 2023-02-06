@@ -1,0 +1,141 @@
+.player {
+  position: sticky;
+  bottom: 0;
+
+  width: 100%;
+
+  background: #181818;
+}
+
+.performer {
+  font-size: 13px;
+}
+
+.progress {
+  height: 5px;
+  width: 99%;
+  background-color: #2e2e2e;
+
+  cursor: pointer;
+}
+
+.progressBar {
+  height: 5px;
+  width: 0%;
+  background-color: #ad61ff;
+}
+
+/* .progressInput {
+  appearance: none;
+  height: 5px;
+  width: 99%;
+
+  background: #2e2e2e;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: background 0.2s ease-in-out;
+}
+
+.progressInput::-webkit-slider-thumb {
+  appearance: none;
+  height: 10px;
+  width: 10px;
+
+  border: none;
+  border-radius: 50%;
+  background: #696969;
+} */
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding: 11px 65px 11px 34px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  line-height: 24px;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.svg-prev,
+.svg-next {
+  width: 15px;
+  height: 14px;
+}
+
+.svg-play {
+  width: 22px;
+  height: 20px;
+  fill: #d9d9d9;
+}
+
+.svg-repeat,
+.svg-shuffle {
+  width: 18px;
+  height: 12px;
+  stroke: #696969;
+}
+
+.svg-like {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.svg-repeat:hover,
+.svg-shuffle:hover,
+.svg-like:hover {
+  stroke: #acacac;
+}
+
+.svg-volume {
+  width: 20px;
+  height: 18px;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+}
+
+.volumeInput {
+  appearance: none;
+  height: 2px;
+  width: 109px;
+  background: #797979;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.volumeInput::-webkit-slider-thumb {
+  appearance: none;
+  height: 10px;
+  width: 10px;
+
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.button.active .svg-repeat,
+.button.active .svg-shuffle {
+  fill: #acacac;
+  stroke: #fff;
+}

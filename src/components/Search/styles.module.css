@@ -1,0 +1,40 @@
+.search {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #4e4e4e;
+}
+
+.icon {
+  width: 17px;
+  height: 16px;
+  fill: transparent;
+}
+
+.input {
+  flex-grow: 1;
+
+  padding: 14px 10px;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+
+  background: transparent;
+  color: inherit;
+  border: none;
+  outline: none;
+}
+
+.input::placeholder {
+  color: inherit;
+}
+
+.input::-webkit-search-cancel-button {
+  appearance: none;
+  height: 10px;
+  width: 10px;
+
+  background-image: url(../../assets/svg/close.svg);
+  cursor: pointer;
+}
